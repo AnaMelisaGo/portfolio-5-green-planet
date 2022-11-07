@@ -31,13 +31,20 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <h1>Welcome to Green Planet!</h1>
-    </header>
+    <header class="container-fluid fixed-top"></header>
 
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block post_js %}
+    {% endblock %}
 </body>
 
 </html>
