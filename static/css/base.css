@@ -1,12 +1,32 @@
+/* --------------------------------------------------- ROOT ------------------------------------- */
+:root {
+    --planet-trans-white: rgba(255, 255, 255, 0.6);
+}
+/* --------------------------------------------------- GLOBAL ------------------------------------- */
 html {
     height: 100%;
 }
 
 body {
-    font: 'Lato';
+    font-family: 'Lato', sans-serif;
+    margin-top: 4rem;
 }
 
 .logo {
     max-height: 5rem;
     max-width: 5rem;
+}
+
+/* --------------------------------------------------- TESTING ------------------------------------- */
+
+
+/* --------------------------------------------------- HOMEPAGE ------------------------------------- */
+.photo {
+    background: url('/media/food-basket.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 80px);
+}
+
+.bg-trans-white {
+    background-color: var(--planet-trans-white);
 }

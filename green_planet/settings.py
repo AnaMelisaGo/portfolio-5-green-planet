@@ -70,12 +70,14 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                # django context processors request isrequired for allauth
+                # django context processors request isrequire   d for allauth
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # media context processors
                 'django.template.context_processors.media',
+
+                'django.template.context_processors.static',
             ],
         },
     },
