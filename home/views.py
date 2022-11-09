@@ -5,4 +5,7 @@ def index(request):
     """
     To render home page
     """
-    return render(request, 'home/index.html')
+    context = {
+        'home': 'active',
+    }
+    return render(request, 'home/index.html', context)
