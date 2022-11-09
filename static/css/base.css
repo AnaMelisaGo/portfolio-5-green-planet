@@ -37,8 +37,8 @@ body {
     background-color: var(--planet-trans-cloud);
 }
 
-.bg-dark-ocean {
-    background-color: var(--planet-dark-tree);
+.bg-home {
+    background-color: rgba(41, 68, 59, 0.8);
 }
 
 /* --------------------------------------------------- NAVBAR ------------------------------------- */
@@ -49,9 +49,7 @@ body {
     max-width: 5rem;
 }
 
-
-
-
+/* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:not(.active) {
     background-image: linear-gradient(
       to right,
@@ -68,7 +66,8 @@ body {
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
 }
-  
+
+/* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:before{
     content: '';
     background: var(--planet-dark-ocean);
@@ -79,17 +78,18 @@ body {
     width: 0;
     height: 3px;
     transition: all 0.3s ease-in-out;
-  }
-  
+}
+
+/* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:hover {
    background-position: 0;
-  }
+}
   
 .navbar-expand-lg .navbar-nav .nav-link:hover::before{
     width: 100%;
 }
 
-
+/* from https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .active {
     font-weight: bolder;
     border-bottom: 3px solid brown;
@@ -108,50 +108,6 @@ body {
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
 }
-
-
-/* .navbar-expand-lg .navbar-nav .nav-link.active {
-    color: red;
-    text-decoration: underline;
-} */
-/*   
-.navbar-expand-lg .navbar-nav .nav-link {
-    content: '';
-    background: #54b3d6;
-    display: block;
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    transition: all 0.3s ease-in-out;
-}
-  
-.navbar-expand-lg .navbar-nav .nav-link:hover {
-   background-position: 0;
-  }
-  
-.navbar-expand-lg .navbar-nav .nav-link:hover::before{
-    width: 100%;
-  } */
-
-/* 
-.navbar-expand-lg .navbar-nav .nav-link {
-    position: relative;
-
-    box-shadow: inset 0 0 0 0 var(--planet-dark-ocean);
-    margin: 0 -.25rem;
-    padding: 0 .25rem;
-    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-  }
-  
-.navbar-expand-lg .navbar-nav .nav-link:hover {
-    box-shadow: inset 150px 0 0 0 var(--planet-dark-ocean);
-    color: white;
-  }
- */
-
-
 
 /* --------------------------------------------------- TESTING ------------------------------------- */
 
