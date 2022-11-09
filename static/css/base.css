@@ -1,17 +1,52 @@
 /* --------------------------------------------------- ROOT ------------------------------------- */
 :root {
-    --planet-trans-white: rgba(255, 255, 255, 0.6);
+    --planet-trans-cloud: rgba(195, 219, 231, 0.75);
+    --planet-black-night: #1a2626;
+    --planet-dark-tree: #29443b;
+    --planet-dark-ocean: #074d66;
+    --planet-sky-blue: #4a8da7;
+    --planet-white-leaf: #e7f0e3;
+    --planet-test: #b9c9c8;
 }
 /* --------------------------------------------------- GLOBAL ------------------------------------- */
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
 html {
     height: 100%;
 }
 
 body {
+    background-color: var(--planet-white-leaf);
+    font-weight: 300;
+    color: var(--planet-black-night);
+    font-size: 20px;
     font-family: 'Lato', sans-serif;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
+/* --------------------------------------------------- BACKGROUND COLORS ------------------------------------- */
+
+.bg-white-leaf{
+    background-color: var(--planet-white-leaf);
+}
+
+.bg-trans-white {
+    background-color: var(--planet-trans-cloud);
+}
+
+.bg-dark-ocean {
+    background-color: var(--planet-dark-tree);
+}
+
+/* --------------------------------------------------- NAVBAR ------------------------------------- */
+
+.nav-link {
+    color: var(--planet-black-night);
+}
 .logo {
     max-height: 5rem;
     max-width: 5rem;
@@ -27,6 +62,4 @@ body {
     height: calc(100vh - 80px);
 }
 
-.bg-trans-white {
-    background-color: var(--planet-trans-white);
-}
+
