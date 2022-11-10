@@ -37,6 +37,10 @@ body {
     background-color: var(--planet-trans-cloud);
 }
 
+.bg-dark-tree {
+    background-color: var(--planet-dark-tree);
+}
+
 .bg-home {
     background-color: rgba(41, 68, 59, 0.8);
 }
