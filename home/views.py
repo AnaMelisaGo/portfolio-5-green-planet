@@ -16,3 +16,10 @@ def terms(request):
     To render terms of use page
     """
     return render(request, 'home/terms.html')
+
+
+def privacy(request):
+    """
+    To render privacy page
+    """
+    return render(request, 'home/privacy.html')
