@@ -128,4 +128,6 @@ body {
     height: calc(100vh - 80px);
 }
 
-
+.top-space {
+    margin-top: 7rem;
+}

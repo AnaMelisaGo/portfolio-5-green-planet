@@ -9,3 +9,10 @@ def index(request):
         'home': 'active',
     }
     return render(request, 'home/index.html', context)
+
+
+def terms(request):
+    """
+    To render terms of use page
+    """
+    return render(request, 'home/terms.html')
