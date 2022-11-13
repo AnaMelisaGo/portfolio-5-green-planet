@@ -6,6 +6,9 @@ class Category(models.Model):
     """
     Category model
     """
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length=255, null=True, blank=True)
 
@@ -29,7 +32,7 @@ class Store(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL
     )
-    store = models.CharField(max_length=255)
+    store_name = models.CharField(max_length=255)
     details = models.TextField()
     original_price = models.DecimalField(max_digits=6, decimal_places=2)
     price = models.DecimalField(max_digits=6, decimal_places=2)
