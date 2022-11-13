@@ -9,6 +9,7 @@ def all_stores(request):
     stores = Store.objects.all()
 
     context = {
+        'store': 'active',
         'all_stores': 'active',
         'stores': stores,
     }

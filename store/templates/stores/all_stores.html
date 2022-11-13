@@ -3,12 +3,47 @@
 {% block title %} All Stores {% endblock %}
 
 {% block content %}
-<main class="top-space container">
-    <div class="row">
-        <div class="col">
-            <p>Testing store</p>
-            {{ stores }}
+<main class="top-space container py-5">
+    <section class="py-5 text-center container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">All stores</h1>
+                <p class="lead text-muted">
+                    Check out all our promotions to save your wallet!
+                </p>
+            </div>
         </div>
+    </section>
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for store in stores %}
+        <div class="col my-3">
+            <div class="card position-relative" style="width: 18rem;">
+                <!-- <i class="fab fa-gratipay position-absolute top-0 end-0 fs-1 "></i> -->
+                <i class="fas fa-heart add-favourite fs-1 text-brown-leaf"></i>
+                <a href="#">
+                    <img src="{{ store.image.url }}" class="card-img-top" alt="{{ store.image }}">
+                </a>
+                <div class="card-body">
+                    <a class="store-card-title" href="#">
+                        <h4 class="card-title fw-bold">{{ store.store_name }}</h4>
+                    </a>
+                    <p class="card-text fs-6">{{ store.category.friendly_name }}</p>
+                    <div class="row text-end">
+                        <div class="col-4 px-2 text-start">
+                            <p><i class="fas fa-star text-dark-ocean"></i> <small>{{ store.rating }}</small></p>
+                        </div>
+                        <div class="col-3 px-0 offset-1">
+                            <p class="text-decoration-line-through text-muted fs-6">{{ store.original_price }}€</p>
+                        </div>
+                        <div class="col-3 px-0">
+                            <p class="fw-bold">{{ store.price }}€</p>
+                        </div>
+                    </div>
+                    <!-- <a href="#" class="btn">Buy</a> -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </main>
 {% endblock %}

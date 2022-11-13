@@ -6,6 +6,7 @@
     --planet-dark-ocean: #074d66;
     --planet-sky-blue: #4a8da7;
     --planet-white-leaf: #e7f0e3;
+    --planet-brown-leaf: #a52a2a;
 }
 /* --------------------------------------------------- GLOBAL ------------------------------------- */
 * {
@@ -27,6 +28,11 @@ body {
     margin-top: 3rem;
 }
 
+a {
+    color: var(--planet-black-night);
+    text-decoration: none;
+}
+
 /* --------------------------------------------------- BACKGROUND COLORS ------------------------------------- */
 
 .bg-white-leaf{
@@ -45,9 +51,21 @@ body {
     background-color: rgba(41, 68, 59, 0.8);
 }
 
+.bg-sky-blue {
+    background-color: var(--planet-sky-blue);
+}
+
 /* --------------------------------------------------- Text ------------------------------------- */
 .text-white-leaf {
     color: var(--planet-white-leaf);
+}
+
+.text-dark-ocean {
+    color: var(--planet-dark-ocean);
+}
+
+.text-brown-leaf {
+    color: var(--planet-brown-leaf);
 }
 
 /* --------------------------------------------------- NAVBAR ------------------------------------- */
@@ -101,17 +119,18 @@ body {
 /* from https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .active {
     font-weight: bolder;
-    border-bottom: 3px solid brown;
+    border-bottom: 3px solid var(--planet-brown-leaf);
     background-image: linear-gradient(
       to right,
       var(--planet-dark-ocean),
       var(--planet-dark-ocean) 50%,
-      #060606 50%
+      var(--planet-brown-leaf) 50%
     );
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
-    padding: 5px 0;
+    padding: 5px 15px;
+    font-weight: bold;
     position: relative;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -130,4 +149,20 @@ body {
 
 .top-space {
     margin-top: 7rem;
+}
+
+/* --------------------------------------------------- TESTING ------------------------------------- */
+.add-favourite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: aquamarine;
+}
+
+.store-card-title:hover {
+    color: var(--planet-brown-leaf);
+}
+
+.card-img-top {
+    height: 15rem;
 }

@@ -45,4 +45,4 @@ class Store(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.store
+        return self.store_name
