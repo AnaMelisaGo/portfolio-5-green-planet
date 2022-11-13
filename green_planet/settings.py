@@ -63,9 +63,10 @@ ROOT_URLCONF = 'green_planet.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
+        'DIRS': [    
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
+            os.path.join(BASE_DIR, 'store', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
