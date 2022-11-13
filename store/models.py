@@ -2,13 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Category(models.Model):
+class BusinessType(models.Model):
     """
     Category model
     """
-    class Meta:
-        verbose_name_plural = 'Categories'
-
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length=255, null=True, blank=True)
 
@@ -29,8 +26,8 @@ class Store(models.Model):
     """
     Store Model
     """
-    category = models.ForeignKey(
-        'Category', null=True, blank=True, on_delete=models.SET_NULL
+    business_type = models.ForeignKey(
+        'BusinessType', null=True, blank=True, on_delete=models.SET_NULL
     )
     store_name = models.CharField(max_length=255)
     details = models.TextField()
