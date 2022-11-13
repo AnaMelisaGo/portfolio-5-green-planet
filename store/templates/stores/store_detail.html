@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} All Stores {% endblock %}
+
+{% block content %}
+<div class="container top-space py-3">
+    <div class="card text-bg-dark">
+        <a class="hvr-icon-grow" href="#">
+            <i class="fas fa-heart add-favourite fs-1 text-white hvr-icon"></i>
+        </a>
+        {% if store.image %}
+        <a href="{{ store.image.url }}" target="_blank">
+            <img src="{{ store.image.url }}" class="image-detail" alt="{{ store.image }}">
+        </a>
+        {% else %}
+        <a href="#">
+            <img src="{{ MEDIA_URL }}no-image.jpg" class="image-detail" alt="{{ store.image }}">
+        </a>
+        
+        {% endif %}
+        <div class="card-image-overlay">
+            <h2 class="card-title fw-bold">{{ store.store_name }}</h2>
+        </div>
+    </div>
+    <div class="bg-light my-2 rounded">
+        <div class="row p-3">
+            <div class="col-8">
+                <p>{{ store.details }}</p>
+                <small>{{ store.business_type.friendly_name }}</small>
+            </div>
+            <div class="col-4">
+                <p class="fw-bold text-end mb-0 fs-3">{{ store.price }}€</p>
+                <p class="text-decoration-line-through text-end text-muted fs-6">{{ store.original_price }}€</p>
+            </div>
+            <div class="col">
+                <p><i class="fas fa-star text-dark-ocean"></i> <small>{{ store.rating }}</small></p>
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="d-grid col-6 mx-auto">
+                <button class="btn btn-dark-ocean" type="button">Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

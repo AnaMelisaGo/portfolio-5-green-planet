@@ -1,6 +1,7 @@
 /* --------------------------------------------------- ROOT ------------------------------------- */
 :root {
     --planet-trans-cloud: rgba(194, 219, 232, 0.75);
+    --planet-trans-black: rgba(26, 38, 38, 0.3);
     --planet-black-night: #1a2626;
     --planet-dark-tree: #29443b;
     --planet-dark-ocean: #074d66;
@@ -151,7 +152,7 @@ a {
     margin-top: 7rem;
 }
 
-/* --------------------------------------------------- TESTING ------------------------------------- */
+/* --------------------------------------------------- Store ------------------------------------- */
 .add-favourite {
     position: absolute;
     top: 10px;
@@ -165,4 +166,40 @@ a {
 
 .card-img-top {
     height: 15rem;
+}
+
+.image-detail {
+    height: 30rem;
+    width: 100%;
+}
+
+.card-image-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: var(--bs-card-img-overlay-padding);
+    width: 100%;
+    background-color: var(--planet-trans-black);
+}
+
+.btn-dark-ocean {
+    background-color: var(--planet-dark-ocean);
+    color: #fff;
+}
+
+.btn-dark-ocean:hover {
+    background-color: var(--planet-sky-blue);
+}
+
+
+/* --------------------------------------------------- RESPONSIVE ------------------------------------- */
+
+/* Medium devices (tablets, 768px and up) */
+/* @media (max-width: 768px) { ... } */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .image-detail {
+        height: 20rem;
+    }
 }
