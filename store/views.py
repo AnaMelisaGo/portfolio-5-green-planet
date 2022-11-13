@@ -9,8 +9,16 @@ def all_stores(request):
     """
     stores = Store.objects.all()
     query = None
+    business_types = None
 
     if request.GET:
+        # Filter by category
+        if 'business_type' in request.GET:
+            business_types = request.GET['business_type']
+            filter = Q(business_type__name__icontains=business_types)
+            stores = stores.filter(filter)
+
+        # Query for search bar
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -25,6 +33,7 @@ def all_stores(request):
         'store': 'active',
         'all_stores': 'active',
         'stores': stores,
+        'current_type': 'business_types'
     }
     return render(request, 'stores/all_stores.html', context)
 
