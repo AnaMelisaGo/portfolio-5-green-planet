@@ -21,11 +21,14 @@ def all_stores(request):
             if sortkey == 'store_name':
                 sortkey = 'lower_name'
                 stores = stores.annotate(lower_name=Lower('store_name'))
-        
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
+
+            if sortkey == 'business_type':
+                sortkey = 'business_type__name'
             stores = stores.order_by(sortkey)
 
         # Filter by category
