@@ -20,7 +20,7 @@
                 <div class="dropdown d-flex gap-5 justify-content-end">
                     <a class="p-1 filter-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-filter"></i>
-                        <span>Filter</span>
+                        <span>Filter all</span>
                     </a>
                     <ul class="dropdown-menu mx-0 shadow w-220px">
                         <li>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="sort-select-wrapper text-end">
-                    <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <select id="filter-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -59,8 +59,8 @@
                         <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
                         <option value="name_asc" {% if current_sorting == 'store_name_asc' %}selected{% endif %}>Name (A-Z)</option>
                         <option value="name_desc" {% if current_sorting == 'store_name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                        <option value="category_asc" {% if current_sorting == 'business_type_asc' %}selected{% endif %}>Category (A-Z)</option>
-                        <option value="category_desc" {% if current_sorting == 'business_type_desc' %}selected{% endif %}>Category (Z-A)</option>
+                        <option value="business_type_asc" {% if current_sorting == 'business_type_asc' %}selected{% endif %}>Category (A-Z)</option>
+                        <option value="business_type_desc" {% if current_sorting == 'business_type_desc' %}selected{% endif %}>Category (Z-A)</option>
                     </select>
                 </div>
             </div>
@@ -105,4 +105,30 @@
         {% endfor %}
     </div>
 </main>
+{% endblock %}
+
+{%  block post_js %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#filter-selector').change(function() {
+        let selector = $(this);
+        let currentUrl = new URL(window.location);
+
+        let selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            let sort = selectedVal.split("_")[0];
+            let direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        }
+    }) 
+
+</script>
 {% endblock %}
