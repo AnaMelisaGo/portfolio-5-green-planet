@@ -191,6 +191,9 @@ a {
     background-color: var(--planet-sky-blue);
 }
 
+.dropdown .filter-link:hover {
+    color: var(--planet-brown-leaf);
+}
 
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 

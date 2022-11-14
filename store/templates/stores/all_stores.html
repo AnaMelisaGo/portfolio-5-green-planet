@@ -3,14 +3,46 @@
 {% block title %} All Stores {% endblock %}
 
 {% block content %}
-<main class="top-space container py-5">
+<main class="top-space container">
     <section class="py-5 text-center container">
         <div class="row">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">All stores</h1>
                 <p class="lead text-muted">
-                    Check out all our promotions to save your wallet!
+                    Check out all our promotions to start saving your money and help reduce food waste!
                 </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col">
+                <div class="dropdown d-flex gap-5 justify-content-end">
+                    <a class="p-1 filter-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-filter"></i>
+                        <span>Filter</span>
+                    </a>
+                    <ul class="dropdown-menu mx-0 shadow w-220px">
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="{% url 'all_stores' %}?sort=price&direction=asc">
+                                Price
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="{% url 'all_stores' %}?sort=rating&direction=desc">
+                                Ratings
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item dropdown-item-danger d-flex gap-2 align-items-center" href="{% url 'all_stores' %}">
+                                Reset
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -22,13 +54,13 @@
                     <i class="fas fa-heart add-favourite fs-1 text-white hvr-icon"></i>
                 </a>
                 {% if store.image %}
-                    <a href="{% url 'store_detail' store.id %}">
-                        <img src="{{ store.image.url }}" class="card-img-top" alt="{{ store.image }}">
-                    </a>
+                <a href="{% url 'store_detail' store.id %}">
+                    <img src="{{ store.image.url }}" class="card-img-top" alt="{{ store.image }}">
+                </a>
                 {% else %}
-                    <a href="{% url 'store_detail' store.id %}">
-                        <img src="{{ MEDIA_URL }}no-image.jpg" class="card-img-top" alt="{{ store.image }}">
-                    </a>
+                <a href="{% url 'store_detail' store.id %}">
+                    <img src="{{ MEDIA_URL }}no-image.jpg" class="card-img-top" alt="{{ store.image }}">
+                </a>
                 {% endif %}
                 <div class="card-body">
                     <a class="store-card-title" href="#">

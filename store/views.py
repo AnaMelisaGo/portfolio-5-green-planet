@@ -10,8 +10,24 @@ def all_stores(request):
     stores = Store.objects.all()
     query = None
     business_types = None
+    sort = None
+    direction = None
 
     if request.GET:
+        # Sort
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'store_name':
+                sortkey = 'lower_name'
+                stores = stores.annotate(lower_name=Lower('store_name'))
+        
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            stores = stores.order_by(sortkey)
+
         # Filter by category
         if 'business_type' in request.GET:
             business_types = request.GET['business_type']
@@ -28,12 +44,13 @@ def all_stores(request):
                 details__icontains=query
             ) | Q(business_type__name__icontains=query)
             stores = stores.filter(queries)
-
+    current_sorting = f'{sort}_{direction}'
     context = {
         'store': 'active',
         'all_stores': 'active',
         'stores': stores,
-        'current_type': 'business_types'
+        'current_type': 'business_types',
+        'current_sorting': current_sorting,
     }
     return render(request, 'stores/all_stores.html', context)
 
