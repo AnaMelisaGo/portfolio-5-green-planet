@@ -1,4 +1,4 @@
-def bag_content(request):
+def bag_contents(request):
     """
     Context to be used for the entire website
     """
