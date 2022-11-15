@@ -211,6 +211,11 @@ a {
     min-height: 50vh;
 }
 
+.quantity-input {
+    margin: 10px;
+    max-width: 3rem;
+}
+
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 
 /* Medium devices (tablets, 768px and up) */
