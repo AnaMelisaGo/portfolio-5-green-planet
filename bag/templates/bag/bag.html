@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-5 min-h-page">
+    <div class="row">
+        <div class="col text-center">
+            <h2>Your purchase</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            {% if bag_items %}
+                <div></div>
+            {% else %}
+            <p>Your bag is empty yet.</p>
+            <a href="{% url 'all_stores' %}" class="btn btn-outline-dark">
+                <span><i class="far fa-chevron-left"></i></span>
+                <span>Go back to store</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
