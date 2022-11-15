@@ -57,8 +57,8 @@
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                         <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
                         <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                        <option value="name_asc" {% if current_sorting == 'store_name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                        <option value="name_desc" {% if current_sorting == 'store_name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        <option value="store_name_asc" {% if current_sorting == 'store_name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="store_name_desc" {% if current_sorting == 'store_name_desc' %}selected{% endif %}>Name (Z-A)</option>
                         <option value="business_type_asc" {% if current_sorting == 'business_type_asc' %}selected{% endif %}>Category (A-Z)</option>
                         <option value="business_type_desc" {% if current_sorting == 'business_type_desc' %}selected{% endif %}>Category (Z-A)</option>
                     </select>
@@ -118,6 +118,14 @@
         if (selectedVal != "reset") {
             let sort = selectedVal.split("_")[0];
             let direction = selectedVal.split("_")[1];
+            if (sort == 'store') {
+                sort = `${sort}_name`;
+                direction = selectedVal.split("_")[2];
+            }
+            if (sort == 'business') {
+                sort = `${sort}_type`;
+                direction = selectedVal.split("_")[2];
+            }
 
             currentUrl.searchParams.set("sort", sort);
             currentUrl.searchParams.set("direction", direction);
