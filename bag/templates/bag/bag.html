@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-2 mb-5 min-h-page">
+<div class="container mt-2 mb-5 min-h-page bg-light rounded py-2">
     <div class="row">
         <div class="col text-center">
             <h2>Your purchase</h2>
@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
-                <table class="table table-sm table-borderless">
+                <table class="table table-sm table-borderless table-hover table-sm-font">
                     <thead class="text-black">
                         <tr>
                             <th scope="col">Product Info</th>
@@ -42,18 +42,29 @@
                             <td class="py-3">
                                 <p class="my-0">€{{ item.store.price }}</p>
                             </td>
-                            <td class="py-3 w-25">
+                            <td class="py-3">
                                 <p class="my-0">{{ item.quantity }}</p>
                             </td>
                             <td class="py-3">
                                 <p class="my-0">€{{ item.store.price }}</p>
                             </td>
+                            <td class="p-3">
+                                <a class="delete-icon text-danger float-right" id="delete_{{ item.item_id }}"><i class="fas fa-minus-circle text-danger"></i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5">
+                        <td colspan="6" class="py-0">
                             <hr>
-                            <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="py-0">
+                            <h4 class="my-0 text-end"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="py-0">
                             <hr>
                         </td>
                     </tr>
@@ -73,13 +84,35 @@
                     </tr>
                 </table>
             {% else %}
-            <p>Your bag is empty yet.</p>
-            <a href="{% url 'all_stores' %}" class="btn btn-outline-dark">
-                <span><i class="fas fa-chevron-left"></i></span>
-                <span>Go back to store</span>
-            </a>
+            <div class="text-center">
+                <p>Your bag is still empty.</p>
+                <a href="{% url 'all_stores' %}" class="btn btn-outline-dark">
+                    <span><i class="fas fa-chevron-left"></i></span>
+                    <span>Go back to store</span>
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block post_js %}
+{{ block.super }}
+
+<script type="text/javascript">
+    // Delete and reload page
+    $('.delete-icon').click(function(e) {
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('id').split('delete_')[1];
+        console.log(itemId);
+        let url = `/bag/delete/${itemId}/`;
+        let data = {'csrfmiddlewaretoken': csrfToken,};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    });
+</script>
 {% endblock %}

@@ -216,6 +216,10 @@ a {
     max-width: 3rem;
 }
 
+.delete-icon {
+    cursor: pointer;
+}
+
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 
 /* Medium devices (tablets, 768px and up) */
@@ -229,6 +233,9 @@ a {
     .copyright {
         font-size: 12px;
         text-align: center;
+    }
+    .table-sm-font {
+        font-size: 12px;
     }
 }
 
