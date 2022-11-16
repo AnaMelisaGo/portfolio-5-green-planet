@@ -4,6 +4,42 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-        {{ message }}
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="my-1">
+            </div>
+        </div>
+        {% if grand_total %}
+        <div class="bag-item-wrapper">
+            <div class="row">
+                {% for item in bag_items %}
+                <div class="col-3 my-1">
+                    <img class="w-100" src="{{ item.store.image.url }}">
+                </div>
+                <div class="col-9">
+                    <p class="my-0 text-decoration-underline">{{ item.store.store_name }}</p>
+                    <p class="my-0 d-flex justify-content-between">
+                        <span class="text-muted">
+                            <small>Qty: {{ item.quantity }}</small>
+                        </span> 
+                        <span class="fw-bold">
+                            {{item.store.price}}€
+                        </span>
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p class="d-flex justify-content-between">
+                        <span class="fw-bold fs-5">Grand Total: </span>
+                        <span class="text-end fw-bold fs-5">{{ grand_total }}€</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>

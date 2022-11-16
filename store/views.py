@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib import messages
+
 from .models import Store, BusinessType
 
 
@@ -42,7 +44,7 @@ def all_stores(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter anything.")
+                messages.error(request, 'You did not enter anything.')
                 return redirect(reverse('all_stores'))
             queries = Q(store_name__icontains=query) | Q(
                 details__icontains=query
