@@ -220,6 +220,16 @@ a {
     cursor: pointer;
 }
 
+/* --------------------------------------------------- TOAST ------------------------------------- */
+
+.message-container {
+    margin-top: 5rem;
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    right: 15px;
+}
+
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 
 /* Medium devices (tablets, 768px and up) */
