@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
+    {% block extra_css %}
+    {% endblock %}
+
     {% block core_js %}
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/4c85c0a16f.js" crossorigin="anonymous"></script>
@@ -41,6 +44,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     <!-- Title -->

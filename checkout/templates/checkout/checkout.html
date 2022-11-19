@@ -2,6 +2,10 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container top-space">
     <div class="row">
@@ -80,7 +84,7 @@
                         {% endif %}
                     </div>
                 </fieldset>
-                <fieldset class="px-3">
+                <fieldset class="px-lg-3">
                     <legend class="fieldset-label fs-5 px-2 w-auto">Payment</legend>
                     <!-- A Stripe card element will go here -->
                     <div class="mb-3" id="card-element"></div>
@@ -113,4 +117,12 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block post_js %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
