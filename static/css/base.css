@@ -234,7 +234,10 @@ a {
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 
 /* Medium devices (tablets, 768px and up) */
-/* @media (max-width: 768px) { ... } */
+@media (max-width: 768px) {
+    .card-body {
+        height: 15rem;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
@@ -248,10 +251,11 @@ a {
     .table-sm-font {
         font-size: 12px;
     }
-
     .toast {
         --bs-toast-max-width: 18rem;
     }
+    .card-body {
+        height: 11rem;
 }
 
 /* --------------------------------------------------- TESTING ------------------------------------- */
