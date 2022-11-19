@@ -12,7 +12,9 @@ class Transaction(models.Model):
     Transaction model to purchase food
     from selected store
     """
-    transaction_number = models.CharField(max_length=32, null=False, editable=False)
+    transaction_number = models.CharField(
+        max_length=32, null=False, editable=False
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -31,7 +33,7 @@ class Transaction(models.Model):
         Update grand total
         """
         self.grand_total = self.orderitem.aggregate(
-            Sum('orderitem_order_total'))['orderitem_order_total__sum']
+            Sum('order_total'))['order_total__sum'] or 0
         self.save()
 
     def save(self, *args, **kwargs):
@@ -69,4 +71,5 @@ class OrderItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.store.store_name} with {self.transaction.transaction_number}'
+        return f'{self.store.store_name} with \
+             {self.order.transaction_number}'

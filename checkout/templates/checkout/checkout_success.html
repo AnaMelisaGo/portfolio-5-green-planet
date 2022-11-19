@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block extra_title %}Success!{% endblock %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-5 min-h-page bg-light rounded py-2">
+    <div class="row">
+        <div class="col text-center py-2">
+            <h2 class="fw-bold">Transaction successful!</h2>
+            <hr class="my-3">
+            <p>All the transaction information is down below. A confirmation email will be sent to <span class="fw-bold">{{ transaction.email }}</span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-7"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-7 d-flex justify-content-center">
+            <a href="{% url 'all_stores' %}" class="btn btn-dark-ocean my-2">
+                <span><i class="fas fa-chevron-left"></i></span>
+                <span>Save some more!</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
