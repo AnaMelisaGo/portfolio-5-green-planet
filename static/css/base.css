@@ -220,6 +220,19 @@ a {
     cursor: pointer;
 }
 
+.btn-dark-tree {
+    border: 1px solid var(--planet-black-night);
+}
+
+.btn-dark-tree:hover {
+    background-color: var(--planet-dark-tree);
+    color: #fff;
+}
+
+.toast-body .btn-checkout-bag {
+    min-width: 100%;;
+}
+
 /* --------------------------------------------------- TOAST ------------------------------------- */
 
 .message-container {
