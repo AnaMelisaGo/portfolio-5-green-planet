@@ -18,11 +18,11 @@
         </a>
         {% if store.image %}
         <a href="{{ store.image.url }}" target="_blank">
-            <img src="{{ store.image.url }}" class="image-detail" alt="{{ store.image }}">
+            <img src="{{ store.image.url }}" class="image-detail" alt="{{ store.store_name }}">
         </a>
         {% else %}
         <a href="#">
-            <img src="{{ MEDIA_URL }}no-image.jpg" class="image-detail" alt="{{ store.image }}">
+            <img src="{{ MEDIA_URL }}no-image.jpg" class="image-detail" alt="{{ store.store_name }}">
         </a>
         
         {% endif %}

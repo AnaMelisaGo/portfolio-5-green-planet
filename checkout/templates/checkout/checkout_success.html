@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block extra_title %}Success!{% endblock %}
@@ -19,14 +19,56 @@
 {% block content %}
 <div class="container mt-2 mb-5 min-h-page bg-light rounded py-2">
     <div class="row">
-        <div class="col text-center py-2">
+        <div class="col text-center py-3">
             <h2 class="fw-bold">Transaction successful!</h2>
-            <hr class="my-3">
-            <p>All the transaction information is down below. A confirmation email will be sent to <span class="fw-bold">{{ transaction.email }}</span></p>
+            <p>All the transaction information is down below. A confirmation email will be sent to <span
+                    class="fw-bold">{{ transaction.email }}</span></p>
         </div>
     </div>
+    {% for item in transaction.orderitem.all %}
+    <div class="row border border-black mx-3 p-3">
+        <div class="col-lg-2 d-lg-block d-none">
+            {% if item.store.image %}
+            <img src="{{ item.store.image.url }}" class="img-fluid rounded-start" alt="{{ store.store_name }}">
+            {% else %}
+            <img src="{{ MEDIA_URL }}no-image.jpg" class="image-detail" alt="{{ store.store_name }}">
+            {% endif %}
+        </div>
+        <div class="col-12 col-lg-10">
+            <div class="row bg-sky-blue">
+                <div class="col-12 col-lg-6 p-3">
+                    <h5 class="fw-bold text-white">Transaction No. <span class="text-break">{{ transaction.transaction_number }}</span></h5>
+                </div>
+                <div class="col-12 col-lg-6 p-3">
+                    <h5 class="fw-bold text-lg-end text-white">Date: <span>{{ transaction.date }}</span></h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-5 my-3">
+                    <h5>To collect:</h5>
+                    <p class="mb-0 fw-bold fs-4">{{ item.store.store_name }}</p>
+                    <p class="mb-0"><small class="text-muted">Qty: <span>{{ item.quantity }}</span></small></p>
+                    <p class="mb-0">Price: <span>€{{ item.store.price }}</span></p>
+                </div>
+                <div class="col-12 col-lg-7 my-3">
+                    <h5>Purchased by:</h5>
+                    <p class="mb-0 fw-bold">Full name: <span>{{ transaction.full_name }}</span></p>
+                    <p class="mb-0">Telephone no.: <span>{{ transaction.phone_number }}</span></p>
+                    <p class="mb-0">Email: <span>{{ transaction.email }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
     <div class="row">
-        <div class="col-12 col-lg-7"></div>
+        <div class="col">
+            <p class="text-end fs-3 fw-bold me-5">
+                Grand Total: 
+                <span>
+                    €{{ transaction.grand_total }}
+                </span>
+            </p>
+        </div>
     </div>
     <div class="row">
         <div class="col-12 col-lg-7 d-flex justify-content-center">
