@@ -109,10 +109,6 @@
 
     {% block post_js %}
         <script type="text/javascript">
-            /* let toastElList = document.querySelectorAll('.toast')
-            let toastList = new bootstrap.Toast(toastElList);
-            toastList.show(); */
-            /* $('.toast').bootstrap.toast('show') */
             const toastElList = document.querySelectorAll('.toast')
             const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl))
             toastList.forEach(toast => toast.show());

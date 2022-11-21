@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load account %}
 
-{% block extra_title %}- Email Conf{% endblock %}
+{% block extra_title %}- Confirm Email{% endblock %}
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
 
@@ -14,13 +14,13 @@
 
 {% user_display confirmation.email_address.user as user_display %}
 
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a
-        href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}
+<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}"
+                class="fw-bold">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}
 </p>
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-    {% csrf_token %}
-    <button class="btn btn-dark-ocean" type="submit">{% trans 'Confirm' %}</button>
+<form class="d-flex justify-content-center" method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+        {% csrf_token %}
+        <button class="btn btn-dark-ocean" type="submit">{% trans 'Confirm' %}</button>
 </form>
 
 {% else %}
@@ -28,7 +28,7 @@
 {% url 'account_email' as email_url %}
 
 <p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new
-        e-mail confirmation request</a>.{% endblocktrans %}</p>
+                e-mail confirmation request</a>.{% endblocktrans %}</p>
 
 {% endif %}
 
