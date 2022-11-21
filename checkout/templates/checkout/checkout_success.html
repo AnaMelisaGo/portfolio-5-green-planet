@@ -21,8 +21,8 @@
     <div class="row">
         <div class="col text-center py-3">
             <h2 class="fw-bold">Transaction successful!</h2>
-            <p>All the transaction information is down below. A confirmation email will be sent to <span
-                    class="fw-bold">{{ transaction.email }}</span></p>
+            <p class="px-3">All the transaction information is down below. A confirmation email will be sent to <span
+                    class="fw-bold">{{ transaction.email }}</span> needed for collection.</p>
         </div>
     </div>
     {% for item in transaction.orderitem.all %}
@@ -47,6 +47,7 @@
                 <div class="col-12 col-lg-5 my-3">
                     <h5>To collect:</h5>
                     <p class="mb-0 fw-bold fs-4">{{ item.store.store_name }}</p>
+                    <p class="mb-0 fw-bold text-break">Address: <span>{{ item.store.address }}</span></p>
                     <p class="mb-0"><small class="text-muted">Qty: <span>{{ item.quantity }}</span></small></p>
                     <p class="mb-0">Price: <span>€{{ item.store.price }}</span></p>
                 </div>
@@ -63,10 +64,7 @@
     <div class="row">
         <div class="col">
             <p class="text-end fs-3 fw-bold me-5">
-                Grand Total: 
-                <span>
-                    €{{ transaction.grand_total }}
-                </span>
+                Grand Total: <span>€{{ transaction.grand_total }}</span>
             </p>
         </div>
     </div>
