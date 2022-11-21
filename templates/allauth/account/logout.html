@@ -1,20 +1,21 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% block extra_title %}- Log out{% endblock %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
-{% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+{% block inner_content %}
+<h2 class="fw-bold text-center">{% trans "Sign Out" %}</h2 class="fw-bold">
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<p class="text-center">{% trans 'Are you sure you want to sign out?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
+<form class="d-flex justify-content-center" method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
+  <button class="btn btn-dark-ocean" type="submit">{% trans 'Sign Out' %}</button>
 </form>
 
 
