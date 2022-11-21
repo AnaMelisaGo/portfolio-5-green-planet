@@ -248,7 +248,7 @@ a {
 }
 
 .container .account-box {
-    min-width: 40rem;
+    max-width: 40rem;
 }
 
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
@@ -279,7 +279,6 @@ a {
         height: 11rem;
     }
     .container .account-box {
-        min-width: 0;
         max-width: 100%;
     }
 }
