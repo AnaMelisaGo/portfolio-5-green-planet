@@ -12,7 +12,7 @@
 
 {% block content %}
 <div class="container py-3 d-lg-flex justify-content-center">
-    <div class="card text-bg-dark">
+    <div class="card text-bg-dark rounded-0">
         <a class="hvr-icon-grow" href="#">
             <i class="fas fa-heart add-favourite fs-1 text-white hvr-icon"></i>
         </a>
@@ -30,7 +30,7 @@
             <h2 class="card-title fw-bold">{{ store.store_name }}</h2>
         </div>
     </div>
-    <div class="bg-light my-2 rounded">
+    <div class="bg-light px-lg-3">
         <div class="row p-3">
             <div class="col-8">
                 <p>{{ store.details }}</p>
@@ -40,13 +40,18 @@
                 <p class="fw-bold text-end mb-0 fs-3">{{ store.price }}€</p>
                 <p class="text-decoration-line-through text-end text-muted fs-6">{{ store.original_price }}€</p>
             </div>
-            <div class="col">
-                <p><i class="fas fa-star text-dark-ocean"></i> <small>{{ store.rating }}</small></p>
+            <div class="row">
+                <div class="col-12 my-2">
+                    <p><i class="fas fa-map-marker-alt"></i> {{ store.address }}</p>
+                </div>
+                <div class="col-12">
+                    <p><i class="fas fa-star text-dark-ocean"></i> <small>{{ store.rating }}</small></p>
+                </div>
             </div>
         </div>
         <form action="{% url 'add_item' store.id %}" method="POST">
             {% csrf_token %}
-            <div class="row p-3">
+            <div class="row pb-3 mx-3 mt-lg-5">
                 <div class="col-12 d-flex">
                     <p class="mt-3"><strong>Quantity:</strong></p>
                     <div class="form-group w-50">

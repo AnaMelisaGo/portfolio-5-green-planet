@@ -31,6 +31,7 @@ class Store(models.Model):
     )
     store_name = models.CharField(max_length=255)
     details = models.TextField()
+    address = models.TextField()
     original_price = models.DecimalField(max_digits=6, decimal_places=2)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
