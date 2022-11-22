@@ -62,7 +62,8 @@ class StripeWH_Handler:
                 time.sleep(1)
         if transaction_exists:
             return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order',
+                    content=f'Webhook received: {event["type"]} \
+                         | SUCCESS: Verified order',
                     status=200
                 )
         else:
@@ -95,7 +96,8 @@ class StripeWH_Handler:
                 )
 
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Webhook received: {event["type"]} \
+                | SUCCESS: Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
