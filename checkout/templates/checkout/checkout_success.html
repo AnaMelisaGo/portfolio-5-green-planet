@@ -68,12 +68,19 @@
             </p>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-12 col-lg-7 d-flex justify-content-center">
-            <a href="{% url 'all_stores' %}" class="btn btn-dark-ocean my-2">
-                <span><i class="fas fa-chevron-left"></i></span>
-                <span>Save some more!</span>
-            </a>
+            {% if from_profile %}
+                <a href="{% url 'view_history' %}" class="btn btn-outline-dark">
+                    <span><i class="fas fa-chevron-left"></i></span>
+                    <span>Go back to view history</span>
+                </a>
+            {% else %}
+                <a href="{% url 'all_stores' %}" class="btn btn-dark-ocean my-2">
+                    <span><i class="fas fa-chevron-left"></i></span>
+                    <span>Save some more!</span>
+                </a>
+            {% endif %}
         </div>
     </div>
 </div>

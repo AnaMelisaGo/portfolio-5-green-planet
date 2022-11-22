@@ -14,7 +14,7 @@ class TransactionAdmin(admin.ModelAdmin):
                        'grand_total', 'original_bag',
                        'stripe_pid')
 
-    fields = ('transaction_number', 'date', 'full_name',
+    fields = ('transaction_number', 'user_profile', 'date', 'full_name',
               'email', 'phone_number', 'grand_total',
               'original_bag', 'stripe_pid',)
 

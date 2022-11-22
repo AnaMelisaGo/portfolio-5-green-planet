@@ -7,6 +7,8 @@ from django.conf import settings
 
 from .forms import TransactionForm
 from .models import Transaction, OrderItem
+from userprofiles.models import UserProfile
+from userprofiles.forms import UserProfileForm
 from store.models import Store
 from bag.contexts import bag_contents
 
@@ -119,6 +121,18 @@ def checkout_success(request, transaction_number):
     transaction = get_object_or_404(
         Transaction, transaction_number=transaction_number
     )
+
+    profile = UserProfile.objects.get(user=request.user)
+    transaction.user_profile = profile
+    transaction.save()
+
+    if save_info:
+        profile_data = {
+            'default_phone_number': transaction.phone_number,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid:
+            user_profile_form.save()
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {transaction_number}. A confirmation \

@@ -3,6 +3,7 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from checkout.models import Transaction
 
 
 def user_profile(request):
@@ -53,5 +54,24 @@ def view_history(request):
     context = {
         'profile': profile,
         'transactions': transactions,
+    }
+    return render(request, template, context)
+
+
+def transaction_history(request, transaction_number):
+    """
+    Function to view user's transactions history
+    """
+    transaction = get_object_or_404(
+        Transaction, transaction_number=transaction_number
+    )
+    messages.info(request, (
+        f'Past transaction for the transaction number {transaction_number}.'
+        ' An email was already sent during purchase.'
+    ))
+    template = 'checkout/checkout_success.html'
+    context = {
+        'from_profile': True,
+        'transaction': transaction,
     }
     return render(request, template, context)

@@ -24,8 +24,8 @@
         </div>
     </div>
     <div class="row mx-lg-4 mx-md-3 d-flex justify-content-center">
-        <div class="col-lg-6 col-12">
-            <p class="text-muted">Order History</p>
+        <div class="col-lg-8 col-12">
+            <p class="text-muted">Here is the list of all your transactions</p>
             <div class="order-history table-responsive">
                 <table class="table table-sm table-borderless">
                     <thead>
@@ -40,15 +40,15 @@
                         {% for transaction in transactions %}
                             <tr>
                                 <td>
-                                    <a href="{% url 'transaction_detail' transaction.transaction_number %}"
+                                    <a href="{% url 'transaction_history' transaction.transaction_number %}"
                                     title="{{ transaction.transaction_number }}">
-                                        {{ transaction.order_number|truncatechars:6 }}
+                                        {{ transaction.transaction_number|truncatechars:6 }}
                                     </a>
                                 </td>
                                 <td>{{ transaction.date }}</td>
                                 <td>
                                     <ul class="list-unstyled">
-                                        {% for item in order.orderitem.all %}
+                                        {% for item in transaction.orderitem.all %}
                                             <li class="small">
                                                 {{ item.store.store_name }} x {{ item.quantity }}
                                             </li>
@@ -66,7 +66,7 @@
     <div class="d-flex justify-content-center">
         <a href="{% url 'user_profile' %}" class="btn btn-outline-dark">
             <span><i class="fas fa-chevron-left"></i></span>
-            <span>Back</span>
+            <span>Back to Profile</span>
         </a>
     </div>
 </div>
