@@ -30,7 +30,13 @@
                 <div class="card-body text-dark">
                   <h5 class="card-title">Hello there!</h5>
                   <h6 class="card-subtitle mb-2 text-muted">You can view your info here:</h6>
-                  <p class="card-text fw-bold my-0">Name: {{ profile.user }}</p>
+                  <p class="card-text fw-bold my-0">Name:
+                    {% if profile.user.first_name and profile.user.last_name %}
+                        {{ profile.user.get_full_name }}
+                    {% else %}
+                        {{ profile.user }}
+                    {% endif %}
+                    </p>
                   <p class="card-text my-0 text-break fs-6">Email: {{ profile.user.email }}</p>
                   <p class="card-text my-0 fs-6">Phone no.: {{ profile.default_phone_number }}</p>
                 </div>

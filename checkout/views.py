@@ -99,7 +99,23 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-    transaction_form = TransactionForm()
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            # user_name = None
+            # if profile.user.first_name and profile.user.last_name:
+            #     user_name = profile.user.get_full_name()
+            # else:
+            #     user_name = profile.user
+            transaction_form = TransactionForm(initial={
+                'full_name': user_name,
+                'email': profile.user.email,
+                'phone_number': profile.default_phone_number
+            })
+        except UserProfile.DoesNotExist:
+            transaction_form = TransactionForm()
+    else:
+        transaction_form = TransactionForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Public key is missing. \

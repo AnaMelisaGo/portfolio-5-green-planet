@@ -9,7 +9,7 @@ class UserProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and attribute classes, 
+        Add placeholders and attribute classes,
         remove labels and set autofocus
         """
         super().__init__(*args, **kwargs)
