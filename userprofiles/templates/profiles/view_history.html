@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block extra_title %}- View History{% endblock %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-5 min-h-page bg-light rounded py-2">
+    <div class="row">
+        <div class="col text-center py-2">
+            <h2 class="fw-bold">View Order History</h2>
+            <hr class="my-3">
+        </div>
+    </div>
+    <div class="row mx-lg-4 mx-md-3 d-flex justify-content-center">
+        <div class="col-lg-6 col-12">
+            <p class="text-muted">Order History</p>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Transaction Number</th>
+                            <th>Date</th>
+                            <th>Store</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'transaction_detail' transaction.transaction_number %}"
+                                    title="{{ transaction.transaction_number }}">
+                                        {{ transaction.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td>{{ transaction.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.orderitem.all %}
+                                            <li class="small">
+                                                {{ item.store.store_name }} x {{ item.quantity }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>${{ transaction.grand_total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'user_profile' %}" class="btn btn-outline-dark">
+            <span><i class="fas fa-chevron-left"></i></span>
+            <span>Back</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

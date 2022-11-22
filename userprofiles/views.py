@@ -21,11 +21,24 @@ def edit_profile(request):
     """
     profile = get_object_or_404(UserProfile, user=request.user)
     form = UserProfileForm(instance=profile)
-    transactions = profile.account.all()
     template = 'profiles/edit_profile.html'
     context = {
         'profile': profile,
         'form': form,
+    }
+    return render(request, template, context)
+
+
+def view_history(request):
+    """
+    Function to view user's transactions history
+    """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    
+    transactions = profile.account.all()
+    template = 'profiles/view_history.html'
+    context = {
+        'profile': profile,
         'transactions': transactions,
     }
     return render(request, template, context)
