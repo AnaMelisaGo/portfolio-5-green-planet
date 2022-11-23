@@ -79,7 +79,17 @@ def add_store(request):
     """
     Add new store for users to purchase food or goods
     """
-    form = StoreForm()
+    if request.method == 'POST':
+        form = StoreForm(request.POST, request.FILES)
+        if form.is_valid:
+            form.save()
+            messages.success(request, 'Success! A new store is added.')
+            return redirect(reverse('all_stores'))
+        else:
+            messages.error(request, 'Failed to add store. Make sure the \
+                 form is valid before you click "Add Store" button.')
+    else:
+        form = StoreForm()
     template = 'stores/add_store.html'
     context = {
         'form': form,

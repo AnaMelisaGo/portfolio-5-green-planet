@@ -1,0 +1,14 @@
+.profile-card {
+    height: 24rem;
+}
+
+.profile-card-body {
+    height: 8rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .profile-card {
+        height: 18rem;
+    } 
+}

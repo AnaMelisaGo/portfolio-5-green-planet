@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block extra_title %}- Profile{% endblock %}
@@ -24,47 +24,68 @@
         </div>
     </div>
     <div class="row mx-lg-5 mx-md-4 mx-sm-3">
-        <div class="col-lg-4 col-md-6 col-12">
-            <div class="card border-dark mb-3">
+        <div class="col-md-6 col-12">
+            <div class="card profile-card border-dark mb-3">
                 <div class="card-header bg-sky-blue">Current info</div>
-                <div class="card-body text-dark">
-                  <h5 class="card-title">Hello there!</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">You can view your info here:</h6>
-                  <p class="card-text fw-bold my-0">Name:
-                    {% if profile.user.first_name or profile.user.last_name %}
-                        {{ profile.user.get_full_name }}
-                    {% else %}
-                        {{ profile.user.username }}
-                    {% endif %}
-                    </p>
-                  <p class="card-text my-0 text-break fs-6">Email: {{ profile.user.email }}</p>
-                  <p class="card-text my-0 fs-6">Phone no.: {{ profile.default_phone_number }}</p>
+                <div class="card-body bg-trans-white text-dark">
+                    <h5 class="card-title">Hello there!</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">You can view your info here:</h6>
+                    <div class="mt-3">
+                        <p class="card-text fw-bold my-0">Name:
+                            {% if profile.user.first_name or profile.user.last_name %}
+                                {{ profile.user.get_full_name }}
+                            {% else %}
+                                {{ profile.user.username }}
+                            {% endif %}
+                            </p>
+                          <p class="card-text my-0 text-break fs-6">Email: {{ profile.user.email }}</p>
+                          <p class="card-text my-0 fs-6">Phone no.: {{ profile.default_phone_number }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-lg-4 col-12">
-            <div class="card border-dark mb-3">
-                <div class="card-header">Edit Profile</div>
-                <a href="{% url 'edit_profile' %}">
-                    <div class="card-body text-dark text-center pt-5">
-                      <h5 class="card-title fs-1"><i class="fas fa-user-edit"></i></h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Edit your details</h6>
+        <div class="col-md-6 col-12">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="card border-dark mb-3">
+                        <div class="card-header">Edit Profile</div>
+                        <a href="{% url 'edit_profile' %}">
+                            <div class="card-body profile-card-body text-dark text-center pt-4">
+                                <h5 class="card-title fs-1"><i class="fas fa-user-edit"></i></h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Edit your details</h6>
+                            </div>
+                        </a>
                     </div>
-                </a>
-              </div>
-        </div>
-        <div class="col-md-3 col-lg-4 col-12">
-            <div class="card border-dark mb-3">
-                <div class="card-header">History</div>
-                <a href="{% url 'view_history' %}">
-                    <div class="card-body text-dark text-center pt-5">
-                      <h5 class="card-title fs-1"><i class="fas fa-book-open"></i></h5>
-                      <h6 class="card-subtitle mb-2 text-muted">View your transactions</h6>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card border-dark mb-3">
+                        <div class="card-header">History</div>
+                        <a href="{% url 'view_history' %}">
+                            <div class="card-body profile-card-body text-dark text-center pt-4">
+                                <h5 class="card-title fs-1"><i class="fas fa-book-open"></i></h5>
+                                <h6 class="card-subtitle mb-2 text-muted">View history</h6>
+                            </div>
+                        </a>
                     </div>
-                </a>
-              </div>
+                </div>
+            </div>
+            {% if user.is_superuser %}
+            <h2 class="fw-bold">Store Management</h2>
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="card border-dark mb-3">
+                        <div class="card-header">Add Store</div>
+                        <a href="{% url 'add_store' %}">
+                            <div class="card-body profile-card-body text-dark text-center pt-4">
+                                <h5 class="card-title fs-1"><i class="fas fa-plus-circle"></i></h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Add more store</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
 {% endblock %}
-
