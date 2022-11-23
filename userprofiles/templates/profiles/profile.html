@@ -31,10 +31,10 @@
                   <h5 class="card-title">Hello there!</h5>
                   <h6 class="card-subtitle mb-2 text-muted">You can view your info here:</h6>
                   <p class="card-text fw-bold my-0">Name:
-                    {% if profile.user.first_name and profile.user.last_name %}
+                    {% if profile.user.first_name or profile.user.last_name %}
                         {{ profile.user.get_full_name }}
                     {% else %}
-                        {{ profile.user }}
+                        {{ profile.user.username }}
                     {% endif %}
                     </p>
                   <p class="card-text my-0 text-break fs-6">Email: {{ profile.user.email }}</p>
