@@ -95,3 +95,31 @@ def add_store(request):
         'form': form,
     }
     return render(request, template, context)
+
+
+def edit_store(request, store_id):
+    """
+    Edit a store
+    """
+    store = get_object_or_404(Store, pk=store_id)
+    if request.method == 'POST':
+        form = StoreForm(request.POST, request.FILES, instance=store)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'You  have updated this store!')
+            return redirect(reverse('store_detail', args=[store.id]))
+        else:
+            messages.error(request,
+                           ('Update error. '
+                            'Please make sure the form is valid.'))
+    else:
+        form = StoreForm(instance=store)
+        messages.warning(request, f'You are updating {store.store_name}')
+
+    template = 'stores/edit_store.html'
+    context = {
+        'form': form,
+        'store': store,
+
+    }
+    return render(request, template, context)
