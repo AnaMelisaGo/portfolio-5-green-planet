@@ -1,4 +1,7 @@
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from .models import Transaction, OrderItem
 from store.models import Store
@@ -13,6 +16,29 @@ class StripeWH_Handler:
 
     def __init__(self, request):
         self.request = request
+
+    def _send_confirmation_email(self, transaction):
+        """
+        Send a copy of the transaction number to the user
+        """
+        user_email = transaction.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {
+                'transaction': transaction,
+            })
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {
+                'transaction': transaction,
+                'green_planet_email': settings.DEFAULT_FROM_EMAIL,
+            })
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [user_email]
+        )
 
     def handle_event(self, event):
         """
@@ -61,6 +87,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if transaction_exists:
+            self._send_confirmation_email(transaction)
             return HttpResponse(
                     content=f'Webhook received: {event["type"]} \
                          | SUCCESS: Verified order',
@@ -94,7 +121,7 @@ class StripeWH_Handler:
                             {event["type"]} | ERROR: {e}',
                     status=500
                 )
-
+        self._send_confirmation_email(transaction)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} \
                 | SUCCESS: Created order in webhook',

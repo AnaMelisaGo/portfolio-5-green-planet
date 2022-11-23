@@ -1,0 +1,17 @@
+Hi {{ transaction.full_name }},
+
+Thank you for purchasing with us! Your food will be prepared for collection. Below is the transaction number needed to collect your purchase.
+
+If you have any incident or errors in your purchase, please contact us right away at {{ green_planet_email }}.
+
+We appreciate your trust you have given to us and thank you for helping to save our planet and for saving food that are about to be thrown away. Hope you enjoy!
+
+Transaction number: {{ transaction.transaction_number }}
+Date: {{ transaction.date }}
+
+Collect from: {{ transaction.store.store_name }}
+Total bag: {{ transaction.quantity }}
+Total: {{ transaction.grand_total }}
+
+Kind regards,
+Green Planet
