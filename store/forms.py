@@ -8,7 +8,7 @@ class StoreForm(forms.ModelForm):
     """
     class Meta:
         model = Store
-        fields = '__all__'
+        exclude = ('favourites',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

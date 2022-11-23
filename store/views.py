@@ -4,6 +4,7 @@ from django.db.models.functions import Lower
 from django.contrib import messages
 
 from .models import Store, BusinessType
+from .forms import StoreForm
 
 
 def all_stores(request):
@@ -72,3 +73,15 @@ def store_detail(request, store_id):
         'store': store,
     }
     return render(request, 'stores/store_detail.html', context)
+
+
+def add_store(request):
+    """
+    Add new store for users to purchase food or goods
+    """
+    form = StoreForm()
+    template = 'stores/add_store.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)
