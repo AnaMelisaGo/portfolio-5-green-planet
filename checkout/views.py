@@ -37,6 +37,19 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+def checkout_user(request):
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user=request.user)
+    else:
+        return redirect(reverse('account_signup'))
+
+    template = 'checkout/checkout_user.html'
+    context = {
+        'profile': profile,
+    }
+    return render(request, template, context)
+
+
 def checkout(request):
     """
     To render the checkout form

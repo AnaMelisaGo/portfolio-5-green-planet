@@ -3,7 +3,8 @@ from . import views
 from .webhooks import webhook
 
 urlpatterns = [
-    path('', views.checkout, name='checkout'),
+    path('payment/', views.checkout, name='checkout'),
+    path('checkout_user', views.checkout_user, name='checkout_user'),
     path(
         'checkout_success/<transaction_number>',
         views.checkout_success,
