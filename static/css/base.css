@@ -187,7 +187,7 @@ a {
 }
 
 .image-detail {
-    height: 26rem;
+    height: 29rem;
     width: 100%;
 }
 
@@ -266,6 +266,24 @@ a {
 
 #div_id_remember {
     font-size: 14px;
+}
+
+
+/* --------------------------------------------------- Custom clearable --------------------------------- */
+
+.btn-select-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-select-image input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */

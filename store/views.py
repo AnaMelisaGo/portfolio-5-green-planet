@@ -84,7 +84,7 @@ def add_store(request):
     if not request.user.is_superuser:
         messages.error(request, 'RESTRICTED PAGE! Only staff members\
              can access this page. Sorry!')
-    return redirect(reverse('home'))
+        return redirect(reverse('home'))
     if request.method == 'POST':
         form = StoreForm(request.POST, request.FILES)
         if form.is_valid:
@@ -144,7 +144,7 @@ def delete_store(request, store_id):
     if not request.user.is_superuser:
         messages.error(request, 'RESTRICTED PAGE! Only staff members\
              can access this page. Sorry!')
-    return redirect(reverse('home'))
+        return redirect(reverse('home'))
     store = get_object_or_404(Store, pk=store_id)
     store.delete()
     messages.info(request, 'Store deleted')

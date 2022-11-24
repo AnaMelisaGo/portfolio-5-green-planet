@@ -31,13 +31,26 @@
     </div>
     <div class="bg-light px-lg-3">
         <div class="row p-3">
-            <div class="col-8">
-                <p>{{ store.details }}</p>
-                <small>{{ store.business_type.friendly_name }}</small>
+            <div class="col-md-8 col-12 mb-1">
+                <div class="row">
+                    <div class="col-12">
+                        <p>{{ store.details }}</p>
+                    </div>
+                    <div class="col-12">
+                        <small>({{ store.business_type.friendly_name }})</small>
+                    </div>
+                </div>
+                
             </div>
-            <div class="col-4">
-                <p class="fw-bold text-end mb-0 fs-3">{{ store.price }}€</p>
-                <p class="text-decoration-line-through text-end text-muted fs-6">{{ store.original_price }}€</p>
+            <div class="col-md-4 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="fw-bold text-md-end mb-0 fs-3">{{ store.price }}€</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-decoration-line-through text-md-end text-muted fs-6">{{ store.original_price }}€</p>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-12 my-2">
@@ -50,10 +63,10 @@
         </div>
         {% if user.is_superuser %}
             <div class="row d-flex justify-content-end">
-                <div class="col-3 col-lg-3 text-end">
+                <div class="col-3 col-md-2 text-end">
                     <a href="{% url 'edit_store' store.id %}" class="fs-6 text-sky-blue"><i class="fas fa-pen"></i> Edit</a>
                 </div>
-                <div class="col-3 col-lg-3">
+                <div class="col-4 col-md-2">
                     <button type="button" class="btn borderless fs-6 text-danger text-end p-0" data-bs-toggle="modal"
                         data-bs-target="#delete-store">
                         <i class="fas fa-trash"></i> Delete
