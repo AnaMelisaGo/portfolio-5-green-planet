@@ -39,6 +39,7 @@ def edit_profile(request):
     else:
         user_form = UserForm(instance=request.user)
         userprofile_form = UserProfileForm(instance=profile)
+        messages.warning(request, f'Updating profile...')
     template = 'profiles/edit_profile.html'
     context = {
         'profile': profile,
