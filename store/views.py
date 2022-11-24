@@ -82,9 +82,9 @@ def add_store(request):
     if request.method == 'POST':
         form = StoreForm(request.POST, request.FILES)
         if form.is_valid:
-            form.save()
-            messages.success(request, 'Success! A new store is added.')
-            return redirect(reverse('all_stores'))
+            store = form.save()
+            messages.info(request, 'Success! A new store is added.')
+            return redirect(reverse('store_detail', args=[store.id]))
         else:
             messages.error(request, 'Failed to add store. Make sure the \
                  form is valid before you click "Add Store" button.')
@@ -123,3 +123,13 @@ def edit_store(request, store_id):
 
     }
     return render(request, template, context)
+
+
+def delete_store(request, store_id):
+    """
+    Delete a store from the webpage
+    """
+    store = get_object_or_404(Store, pk=store_id)
+    store.delete()
+    messages.info(request, 'Store deleted')
+    return redirect(reverse('all_stores'))

@@ -76,6 +76,14 @@ a {
     color: var(--planet-dark-tree);
 }
 
+.text-sky-blue {
+    color: var(--planet-sky-blue);
+}
+
+.text-sky-blue:hover {
+    color: var(--planet-sky-blue);
+}
+
 /* --------------------------------------------------- NAVBAR ------------------------------------- */
 
 
@@ -178,9 +186,13 @@ a {
     height: 15rem;
 }
 
+.card-img-container {
+    min-width: 25rem;
+}
+
 .image-detail {
     height: 26rem;
-    width: 100%;
+    width: 25rem;
 }
 
 .card-image-overlay {

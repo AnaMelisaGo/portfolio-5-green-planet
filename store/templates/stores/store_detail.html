@@ -12,7 +12,7 @@
 
 {% block content %}
 <div class="container py-3 mb-5 d-lg-flex justify-content-center">
-    <div class="card text-bg-dark rounded-0">
+    <div class="card card-img-container text-bg-dark rounded-0">
         <a class="hvr-icon-grow" href="#">
             <i class="fas fa-heart add-favourite fs-1 text-white hvr-icon"></i>
         </a>
@@ -21,7 +21,7 @@
             <img src="{{ store.image.url }}" class="image-detail" alt="{{ store.store_name }}">
         </a>
         {% else %}
-        <a href="#">
+        <a href="{{ MEDIA_URL }}no-image.jpg" target="_blank">
             <img src="{{ MEDIA_URL }}no-image.jpg" class="image-detail" alt="{{ store.store_name }}">
         </a>
         
@@ -49,9 +49,17 @@
                 </div>
             </div>
         </div>
+        <div class="row me-5 d-flex justify-content-end">
+            <div class="col-3">
+                <a href="{% url 'edit_store' store.id %}" class="fs-6 text-sky-blue"><i class="fas fa-pen"></i> Edit</a>
+            </div>
+            <div class="col-3">
+                <a href="{% url 'delete_store' store.id %}" class="fs-6 text-danger"><i class="fas fa-trash"></i> Delete</a>
+            </div>
+        </div>
         <form action="{% url 'add_item' store.id %}" method="POST">
             {% csrf_token %}
-            <div class="row pb-3 mx-3 mt-lg-5">
+            <div class="row pb-3 mx-3 mt-lg-1">
                 <div class="col-12 d-flex">
                     <p class="mt-3"><strong>Quantity:</strong></p>
                     <div class="form-group w-50">
