@@ -27,7 +27,14 @@
         <div class="col-12 col-md-6">
             <form method="POST" action="{% url 'edit_store' store.id %}" class="form mb-5" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form | crispy }}
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+                
                 <div class="text-center">
                     <a href="{% url 'all_stores' %}" class="btn btn-danger mx-2 mt-3">Cancel</a>
                     <button class="btn btn-dark-ocean mx-2 mt-3" type="submit">Update Store</button>

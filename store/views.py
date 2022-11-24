@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Store, BusinessType
 from .forms import StoreForm
@@ -75,10 +76,15 @@ def store_detail(request, store_id):
     return render(request, 'stores/store_detail.html', context)
 
 
+@login_required
 def add_store(request):
     """
     Add new store for users to purchase food or goods
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'RESTRICTED PAGE! Only staff members\
+             can access this page. Sorry!')
+    return redirect(reverse('home'))
     if request.method == 'POST':
         form = StoreForm(request.POST, request.FILES)
         if form.is_valid:
@@ -97,10 +103,15 @@ def add_store(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_store(request, store_id):
     """
     Edit a store
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'RESTRICTED PAGE! Only staff members\
+             can access this page. Sorry!')
+        return redirect(reverse('home'))
     store = get_object_or_404(Store, pk=store_id)
     if request.method == 'POST':
         form = StoreForm(request.POST, request.FILES, instance=store)
@@ -125,10 +136,15 @@ def edit_store(request, store_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_store(request, store_id):
     """
     Delete a store from the webpage
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'RESTRICTED PAGE! Only staff members\
+             can access this page. Sorry!')
+    return redirect(reverse('home'))
     store = get_object_or_404(Store, pk=store_id)
     store.delete()
     messages.info(request, 'Store deleted')
