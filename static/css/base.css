@@ -186,13 +186,9 @@ a {
     height: 15rem;
 }
 
-.card-img-container {
-    min-width: 25rem;
-}
-
 .image-detail {
     height: 26rem;
-    width: 25rem;
+    width: 100%;
 }
 
 .card-image-overlay {
