@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.db import transaction
+from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from .forms import UserProfileForm, UserForm
 from checkout.models import Transaction
 
 
+@login_required
 def user_profile(request):
     """
     Function to show the user profile
@@ -19,6 +21,7 @@ def user_profile(request):
     return render(request, template, context)
 
 
+@login_required
 @transaction.atomic
 def edit_profile(request):
     """
@@ -50,6 +53,7 @@ def edit_profile(request):
     return render(request, template, context)
 
 
+@login_required
 def view_history(request):
     """
     Function to view user's transactions history
@@ -65,6 +69,7 @@ def view_history(request):
     return render(request, template, context)
 
 
+@login_required
 def transaction_history(request, transaction_number):
     """
     Function to view user's transactions history
