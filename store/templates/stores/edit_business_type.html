@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_title %}- Edit Business type{% endblock %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-5 min-h-page bg-light rounded py-2">
+    <div class="row">
+        <div class="col-12 text-center py-2">
+            <h2 class="fw-bold">Business Type</h2>
+            <hr class="my-3">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center gap-5">
+        <div class="col-md-5 col-12 me-md-4">
+            <div class="list-group">
+                <div class="list-group-item bg-dark-tree text-white" aria-current="true">List of business types</div>
+                {% for type in business_type %}
+                    <div class="list-group-item d-flex justify-content-between">
+                        {% if type.id == btype.id %}
+                            <span>
+                                {{ type.friendly_name }}
+                            </span>
+                            <span class="horizontal-shake">
+                                <i class="fas fa-pen text-info"></i>
+                            </span>
+                        {% else %}
+                            <span>{{ type.friendly_name }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-5 col-12">
+            <h4 class="fw-bold">Edit {{ btype.friendly_name }}</h4>
+            <form method="POST" action="{% url 'edit_business_type' btype.id %}" class="form mb-5" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-center">
+                    <a href="{% url 'add_business_type' %}" class="btn btn-outline-dark mx-2 mt-3"><i
+                            class="fas fa-chevron-left"></i> Cancel</a>
+                    <button class="btn btn-dark-ocean mx-2 mt-3" type="submit">Save update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

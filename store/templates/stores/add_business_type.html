@@ -23,7 +23,7 @@
     <div class="row d-flex justify-content-center gap-5">
         <div class="col-md-5 col-12 me-md-4">
             <div class="list-group">
-                <div class="list-group-item active" aria-current="true">List of business types</div>
+                <div class="list-group-item bg-dark-tree text-white" aria-current="true">List of business types</div>
                 {% for type in business_type %}
                 
                 <div class="list-group-item d-flex justify-content-between">
@@ -46,7 +46,7 @@
                     </span>
                     <span>
                         <a href="{% url 'delete_business_type' type.id %}" class="text-danger"><i class="fas fa-minus-circle"></i></a>
-
+                        <a href="{% url 'edit_business_type' type.id %}" class="text-info ms-2"><i class="fas fa-pen"></i></a>
                         <!-- <button type="button" class="btn borderless fs-6 text-danger p-0" data-bs-toggle="modal" data-bs-target="#delete-btype">
                             Delete {{ type.id }}
                         </button> -->

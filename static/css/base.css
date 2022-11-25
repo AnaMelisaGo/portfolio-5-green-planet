@@ -286,6 +286,21 @@ a {
     cursor: pointer;
 }
 
+
+/* --------------------------------------------------- BUSINESS TYPE ------------------------------------- */
+/* FROM https://unused-css.com/blog/css-shake-animation/ */
+span.horizontal-shake {
+    animation: horizontal-shaking 0.35s infinite;
+}
+
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
+
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 
 /* Medium devices (tablets, 768px and up) */

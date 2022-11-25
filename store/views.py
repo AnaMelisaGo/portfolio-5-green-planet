@@ -106,6 +106,41 @@ def add_business_type(request):
 
 
 @login_required
+def edit_business_type(request, type_id):
+    """
+    Edit a business type
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'RESTRICTED PAGE! Only staff members\
+             can access this page. Sorry!')
+        return redirect(reverse('home'))
+    business_type = BusinessType.objects.all()
+    btype = get_object_or_404(BusinessType, pk=type_id)
+    if request.method == 'POST':
+        form = BusinessTypeForm(request.POST, instance=btype)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'You  have updated successfully!')
+            return redirect(reverse('add_business_type'))
+        else:
+            messages.error(request,
+                           ('Update error. '
+                            'Please make sure the form is valid.'))
+    else:
+        form = BusinessTypeForm(instance=btype)
+        messages.warning(request, f'You are updating {btype.friendly_name}')
+
+    template = 'stores/edit_business_type.html'
+    context = {
+        'form': form,
+        'business_type': business_type,
+        'btype': btype,
+
+    }
+    return render(request, template, context)
+
+
+@login_required
 def delete_business_type(request, type_id):
     """
     Delete business type for the store
