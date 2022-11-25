@@ -1,14 +1,16 @@
-<div class="mb-2 mx-auto d-md-block d-lg-none {{ bag }} justify-content-center">
+<div class="mb-2 mx-auto d-md-block d-lg-none text-sky-blue {{ bag }} justify-content-center">
     <a class="nav-link {% if grand_total %}fw-bold{% endif %}" href="{% url 'view_bag' %}">
         <span class="fs-2">
             <i class="fas fa-shopping-bag fa-lg"></i>
         </span>
-        <span class="my-0">
-            {% if grand_total %}
-                €{{ grand_total|floatformat:2 }}
-            {% else %}
-                €0.0
-            {% endif %}
-        </span>
+        {% if grand_total %}
+            <span class="my-0 text-white-leaf">
+                € {{ grand_total|floatformat:2 }}
+            </span>
+        {% else %}
+            <span class="text-sky-blue">
+                € 0.0
+            </span>
+        {% endif %}
     </a>
 </div>

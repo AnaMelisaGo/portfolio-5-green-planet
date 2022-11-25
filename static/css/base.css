@@ -7,7 +7,8 @@
     --planet-dark-ocean: #074d66;
     --planet-sky-blue: #4a8da7;
     --planet-white-leaf: #e7f0e3;
-    --planet-brown-leaf: #a52a2a;
+    --planet-brown-leaf: #946C3E;
+    --planet-yellow-leaf: #99C233;
 }
 /* --------------------------------------------------- GLOBAL ------------------------------------- */
 * {
@@ -59,6 +60,10 @@ a {
     background-color: var(--planet-sky-blue);
 }
 
+.bg-dark-ocean {
+    background-color: var(--planet-dark-ocean);
+}
+
 /* --------------------------------------------------- Text ------------------------------------- */
 .text-white-leaf {
     color: var(--planet-white-leaf);
@@ -84,6 +89,10 @@ a {
     color: var(--planet-sky-blue);
 }
 
+.text-yellow-leaf {
+    color: var(--planet-yellow-leaf);
+}
+
 /* --------------------------------------------------- NAVBAR ------------------------------------- */
 
 
@@ -92,13 +101,17 @@ a {
     max-width: 5rem;
 }
 
+.navbar-toggler {
+    border: var(--bs-border-width) solid transparent;
+}
+
 /* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:not(.active) {
     background-image: linear-gradient(
       to right,
-      var(--planet-dark-ocean),
-      var(--planet-dark-ocean) 50%,
-      #6a6a6a 50%
+      var(--planet-sky-blue),
+      var(--planet-white-leaf) 50%,
+      var(--planet-white-leaf) 50%
     );
     background-size: 200% 100%;
     background-position: -100%;
@@ -113,7 +126,7 @@ a {
 /* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:before{
     content: '';
-    background: var(--planet-dark-ocean);
+    background: var(--planet-sky-blue);
     display: block;
     position: absolute;
     bottom: -3px;
@@ -138,9 +151,9 @@ a {
     border-bottom: 3px solid var(--planet-brown-leaf);
     background-image: linear-gradient(
       to right,
-      var(--planet-dark-ocean),
-      var(--planet-dark-ocean) 50%,
-      var(--planet-brown-leaf) 50%
+      var(--planet-white-leaf),
+      var(--planet-sky-blue) 50%,
+      var(--planet-yellow-leaf) 50%
     );
     background-size: 200% 100%;
     background-position: -100%;
@@ -151,6 +164,24 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-white {
+    color: var(--planet-white-leaf);
+    border: 1px solid var(--planet-white-leaf);
+}
+
+.btn-outline-white:hover {
+    background-color: var(--planet-sky-blue);
+    color: var(--planet-white-leaf);
+}
+
+.text-sky-blue i:hover {
+    color: var(--planet-white-leaf);
+}
+
+.text-sky-blue .nav-link .text-white-leaf:hover {
+    color: var(--planet-sky-blue);
 }
 
 /* --------------------------------------------------- FOOTER ------------------------------------- */
@@ -216,7 +247,7 @@ a {
 /* --------------------------------------------------- BAG ------------------------------------- */
 
 .bag-active{
-    color: var(--planet-brown-leaf);
+    color: var(--planet-yellow-leaf);
 }
 
 .min-h-page {
@@ -268,6 +299,14 @@ a {
     font-size: 14px;
 }
 
+a.text-brown-leaf:hover {
+    color: var(--planet-yellow-leaf);
+}
+
+/* FROM https://unused-css.com/blog/css-shake-animation/ */
+span.constant-tilt-shake {
+    animation: tilt-shaking 0.3s infinite;
+}
 
 /* --------------------------------------------------- Custom clearable --------------------------------- */
 
@@ -293,6 +332,8 @@ span.horizontal-shake {
     animation: horizontal-shaking 0.35s infinite;
 }
 
+/* --------------------------------------------------- KEY FRAMES ANIMATION ------------------------------- */
+/* FROM https://unused-css.com/blog/css-shake-animation/ */
 @keyframes horizontal-shaking {
     0% { transform: translateX(0) }
     25% { transform: translateX(5px) }
@@ -300,6 +341,14 @@ span.horizontal-shake {
     75% { transform: translateX(5px) }
     100% { transform: translateX(0) }
 }
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
 
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 

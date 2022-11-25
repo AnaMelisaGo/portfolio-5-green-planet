@@ -1,5 +1,5 @@
 {% extends "account/base.html" %}
-
+{% load static %}
 {% load i18n %}
 
 {% block extra_title %}- Register{% endblock %}
@@ -11,8 +11,14 @@
 <p>Register here to create a profile. Make sure to put your email address to receive the transaction number needed for
 	collection.</p>
 
-<p class="fs-6">{% blocktrans %}Already have an account? Click <a class="text-brown-leaf text-decoration-underline"
-		href="{{ login_url }}">here</a>.{% endblocktrans %}</p>
+<div class=" fs-6 d-flex mb-2">
+	Already have an account? Click
+	<span class="mx-1 constant-tilt-shake">
+		<a class="text-brown-leaf text-decoration-underline" href="{{ login_url }}">
+			here
+		</a>
+	</span>
+</div>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
 	{% csrf_token %}

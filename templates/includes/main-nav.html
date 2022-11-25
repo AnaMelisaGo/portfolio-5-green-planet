@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse justify-content-end me-4" id="main-navbar">
     <form method="GET" action="{% url 'all_stores' %}" class="d-flex" role="search">
-        <input class="form-control me-2 rounded-0" type="text" name="q" placeholder="Search store" aria-label="Search store">
-        <button class="btn btn-outline-dark rounded-0" type="submit">Search</button>
+        <input class="form-control me-2" type="text" name="q" placeholder="Search store" aria-label="Search store">
+        <button class="btn btn-outline-white" type="submit">Search</button>
     </form>
     <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item mx-lg-2">
@@ -26,7 +26,7 @@
             <a class="nav-link {{ business }} p-1" aria-current="page" href="#">For Businesses</a>
         </li>
         <li class="nav-item dropdown mx-lg-2">
-            <a class="nav-link p-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link p-1 {{ account }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Account
             </a>
             <ul class="dropdown-menu">
