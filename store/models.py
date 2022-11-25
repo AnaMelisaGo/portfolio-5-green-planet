@@ -31,11 +31,11 @@ class Store(models.Model):
     )
     store_name = models.CharField(max_length=255)
     details = models.TextField()
-    address = models.TextField()
-    original_price = models.DecimalField(max_digits=6, decimal_places=2)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    address = models.CharField(max_length=255)
+    original_price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=4, decimal_places=2)
     rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True
+        max_digits=4, decimal_places=2, null=True, blank=True
     )
     favourites = models.ManyToManyField(
         User, related_name='favourite', default=None, blank=True
