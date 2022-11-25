@@ -52,14 +52,18 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook
         """
+        print("Intent Succeeded")
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
-        billing_details = intent.charges.data[0].billing_details
-        grand_total = round(intent.charges.data[0].amount / 100, 2)
-
+        stripe_charge = stripe.Charge.retrieve(
+            intent.latest_charge
+        )
+        billing_details = stripe_charge.billing_details  # updated
+        shipping_details = intent.shipping
+        grand_total = round(stripe_charge.amount / 100, 2)  # updated
         # Update profile when save info is checked
         profile = None
         username = intent.metadata.username
@@ -131,6 +135,7 @@ class StripeWH_Handler:
         """
            Handle the payment_intent.payment_failed webhook
         """
+        print("Intent Failed")
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)

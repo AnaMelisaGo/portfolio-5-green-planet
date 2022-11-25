@@ -17,9 +17,14 @@ urlpatterns = [
         'add_business_type/', views.add_business_type, name='add_business_type'
     ),
     path(
-        'edit_business_type/<int:type_id>', views.edit_business_type, name='edit_business_type'
+        'edit_business_type/<int:type_id>',
+        views.edit_business_type,
+        name='edit_business_type'
     ),
     path(
-        'delete_business_type/<int:type_id>', views.delete_business_type, name='delete_business_type'
+        'delete_business_type/<int:type_id>',
+        views.delete_business_type,
+        name='delete_business_type'
     ),
+    # path('add_favourite/<int:store_id>', views.add_favourite, name='add_favourite')
 ]
