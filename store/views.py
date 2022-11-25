@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Store, BusinessType
-from .forms import StoreForm
+from .forms import StoreForm, BusinessTypeForm
 
 
 def all_stores(request):
@@ -74,6 +74,45 @@ def store_detail(request, store_id):
         'store': store,
     }
     return render(request, 'stores/store_detail.html', context)
+
+
+@login_required
+def add_business_type(request):
+    """
+    Add new business type for the store
+    """
+    business_type = BusinessType.objects.all()
+    if not request.user.is_superuser:
+        messages.error(request, 'RESTRICTED PAGE! Only staff members\
+             can access this page. Sorry!')
+        return redirect(reverse('home'))
+    if request.method == 'POST':
+        form = BusinessTypeForm(request.POST)
+        if form.is_valid:
+            form.save()
+            messages.info(request, 'Successfully added')
+            form = BusinessTypeForm()
+        else:
+            messages.error(request, 'Error! Make sure the form is\
+                valid before you click the button.')
+    else:
+        form = BusinessTypeForm()
+    template = 'stores/add_business_type.html'
+    context = {
+        'form': form,
+        'business_type': business_type,
+    }
+    return render(request, template, context)
+
+
+@login_required
+def delete_business_type(request, type_id):
+    """
+    Delete business type for the store
+    """
+    type = get_object_or_404(BusinessType, pk=type_id)
+    type.delete()
+    return redirect('add_business_type')
 
 
 @login_required
