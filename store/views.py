@@ -99,6 +99,7 @@ def add_business_type(request):
         form = BusinessTypeForm()
     template = 'stores/add_business_type.html'
     context = {
+        'account': 'active',
         'form': form,
         'business_type': business_type,
     }
@@ -132,6 +133,7 @@ def edit_business_type(request, type_id):
 
     template = 'stores/edit_business_type.html'
     context = {
+        'account': 'active',
         'form': form,
         'business_type': business_type,
         'btype': btype,
@@ -172,6 +174,7 @@ def add_store(request):
         form = StoreForm()
     template = 'stores/add_store.html'
     context = {
+        'account': 'active',
         'form': form,
     }
     return render(request, template, context)
@@ -203,6 +206,7 @@ def edit_store(request, store_id):
 
     template = 'stores/edit_store.html'
     context = {
+        'stores': 'active',
         'form': form,
         'store': store,
 

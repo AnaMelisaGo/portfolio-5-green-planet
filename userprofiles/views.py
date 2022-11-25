@@ -17,6 +17,7 @@ def user_profile(request):
     template = 'profiles/profile.html'
     context = {
         'profile': profile,
+        'account': 'active',
     }
     return render(request, template, context)
 
@@ -45,6 +46,7 @@ def edit_profile(request):
         messages.warning(request, f'Updating profile...')
     template = 'profiles/edit_profile.html'
     context = {
+        'account': 'active',
         'profile': profile,
         'user_form': user_form,
         'userprofile_form': userprofile_form,
@@ -63,6 +65,7 @@ def view_history(request):
     transactions = profile.account.all()
     template = 'profiles/view_history.html'
     context = {
+        'account': 'active',
         'profile': profile,
         'transactions': transactions,
     }
@@ -83,6 +86,7 @@ def transaction_history(request, transaction_number):
     ))
     template = 'checkout/checkout_success.html'
     context = {
+        'account': 'active',
         'from_profile': True,
         'transaction': transaction,
     }
