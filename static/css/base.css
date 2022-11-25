@@ -65,6 +65,10 @@ a {
     background-color: var(--planet-dark-ocean);
 }
 
+.bg-trans-black {
+    background-color: rgba(26, 38, 38, 0.75);
+}
+
 /* --------------------------------------------------- Text ------------------------------------- */
 .text-white-leaf {
     color: var(--planet-white-leaf);
@@ -198,6 +202,7 @@ a {
     margin-top: 8rem;
 }
 
+/* FROM https://dev.to/webdeasy/top-20-css-buttons-animations-f41 */
 .wrap {
     height: 100%;
     display: flex;
@@ -205,17 +210,15 @@ a {
     justify-content: center;
   }
   
-  .home-button {
+.home-button {
     min-width: 300px;
     min-height: 40px;
-    font-family: 'Nunito', sans-serif;
     font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 1.3px;
     font-weight: 700;
     color: var(--planet-white-leaf);
     background: #4a8da7;
-    /* background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%); */
     border: none;
     border-radius: 30px;
     box-shadow: 12px 12px 24px rgba(74, 141, 167, .65);
@@ -227,34 +230,19 @@ a {
     padding: 10px;
     top: 25%;
     z-index: 2;
-    }
-  
-  /* a.home-button::before {
-    content: '';
-    border-radius: 1000px;
-    min-width: calc(300px + 12px);
-    min-height: calc(60px + 12px);
-    border: 6px solid #00FFCB;
-    box-shadow: 0 0 60px rgba(0,255,203,.64);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: all .3s ease-in-out 0s;
-  } */
-  
-  .home-button:hover, .home-button:focus {
+}
+
+.home-button:hover, .home-button:focus {
     color: #313133;
     transform: translateY(-6px);
     background-color: #00FFCB;
-  }
+}
   
-  a.home-button:hover::before, .home-button:focus::before {
+a.home-button:hover::before, .home-button:focus::before {
     opacity: 1;
-  }
+}
   
-  a.home-button::after {
+a.home-button::after {
     content: '';
     width: 30px; height: 30px;
     border-radius: 100%;
@@ -265,25 +253,31 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
-  }
-  
-  a.home-button:hover::after, a.home-button:focus::after {
+}
+
+a.home-button:hover::after, a.home-button:focus::after {
     animation: none;
     display: none;
-  }
-  
-  @keyframes ring {
-    0% {
-      width: 30px;
-      height: 30px;
-      opacity: 1;
-    }
-    100% {
-      width: 250px;
-      height: 120px;
-      opacity: 0;
-    }
-  }
+}
+/* until here, from https://dev.to/webdeasy/top-20-css-buttons-animations-f41 */
+
+.mission-container {
+    position: relative;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/media/watercolor.png');
+    background-size: cover;
+}
+
+.mission-container>h5 {
+    font-size: 40px;
+}
+
+.mission-container span:nth-of-type(2) {
+    justify-content: right;
+}
+
 /* --------------------------------------------------- STORE ------------------------------------- */
 .add-favourite {
     position: absolute;
@@ -440,6 +434,7 @@ span.horizontal-shake {
     }
 }
 
+/* FROM https://unused-css.com/blog/css-shake-animation/ */
 @keyframes tilt-shaking {
     0% {
         transform: rotate(0deg);
@@ -462,12 +457,36 @@ span.horizontal-shake {
     }
 }
 
+/* from https://dev.to/webdeasy/top-20-css-buttons-animations-f41 */
+@keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 280px;
+      height: 130px;
+      opacity: 0;
+    }
+}
+
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
+
+/* `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 1399.98px) {
+    .mission-container>h5 {
+        font-size:30px;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
     .card-body {
         height: 15rem;
+    }
+    .mission-container>h5 {
+        font-size: 25px;
     }
 }
 
@@ -496,5 +515,13 @@ span.horizontal-shake {
 
     .container .account-box {
         max-width: 100%;
+    }
+    .mission-container>h5 {
+        font-size: 18px;
+    }
+    .home-button {
+        min-width: 200px;
+        font-size: 15px;
+        top: 30%;
     }
 }

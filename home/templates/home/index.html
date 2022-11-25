@@ -25,10 +25,13 @@
             <a href="{% url 'all_stores' %}" class="home-button">Start here!</a>
         </div>
     </section>
-    <section class="container my-4">
-        <div class="row">
+    <hr class="my-4">
+    <section class="container bg-light">
+        
+        <div class="row my-5 py-5">
             <div class="col">
-                <h2>Our Mission</h2>
+                <h2 class="fw-bold fs-2 text-center">Our Mission</h2>
+                {% include 'home/includes/mission.html' %}
             </div>
         </div>
     </section>
