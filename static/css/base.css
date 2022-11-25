@@ -191,6 +191,17 @@ a {
     color: #fff;
 }
 
+/* Mailchimp style */
+#mc_embed_signup {
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+
+.brandingLogo img {
+    width: 8rem;
+}
+
 /* --------------------------------------------------- HOMEPAGE ------------------------------------- */
 .photo {
     background: url('/media/food-basket.jpg') no-repeat center center fixed;
