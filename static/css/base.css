@@ -10,6 +10,7 @@
     --planet-brown-leaf: #946C3E;
     --planet-yellow-leaf: #99C233;
 }
+
 /* --------------------------------------------------- GLOBAL ------------------------------------- */
 * {
     padding: 0;
@@ -40,7 +41,7 @@ a {
 
 /* --------------------------------------------------- BACKGROUND COLORS ------------------------------------- */
 
-.bg-white-leaf{
+.bg-white-leaf {
     background-color: var(--planet-white-leaf);
 }
 
@@ -53,7 +54,7 @@ a {
 }
 
 .bg-home {
-    background-color: rgba(41, 68, 59, 0.8);
+    background-color: rgba(148, 108, 62, 0.85);
 }
 
 .bg-sky-blue {
@@ -107,12 +108,10 @@ a {
 
 /* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:not(.active) {
-    background-image: linear-gradient(
-      to right,
-      var(--planet-sky-blue),
-      var(--planet-white-leaf) 50%,
-      var(--planet-white-leaf) 50%
-    );
+    background-image: linear-gradient(to right,
+            var(--planet-sky-blue),
+            var(--planet-white-leaf) 50%,
+            var(--planet-white-leaf) 50%);
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
@@ -124,7 +123,7 @@ a {
 }
 
 /* https://css-tricks.com/css-link-hover-effects/ */
-.navbar-expand-lg .navbar-nav .nav-link:before{
+.navbar-expand-lg .navbar-nav .nav-link:before {
     content: '';
     background: var(--planet-sky-blue);
     display: block;
@@ -138,10 +137,10 @@ a {
 
 /* https://css-tricks.com/css-link-hover-effects/ */
 .navbar-expand-lg .navbar-nav .nav-link:hover {
-   background-position: 0;
+    background-position: 0;
 }
-  
-.navbar-expand-lg .navbar-nav .nav-link:hover::before{
+
+.navbar-expand-lg .navbar-nav .nav-link:hover::before {
     width: 100%;
 }
 
@@ -149,12 +148,10 @@ a {
 .navbar-expand-lg .navbar-nav .active {
     font-weight: bolder;
     border-bottom: 3px solid var(--planet-brown-leaf);
-    background-image: linear-gradient(
-      to right,
-      var(--planet-white-leaf),
-      var(--planet-sky-blue) 50%,
-      var(--planet-yellow-leaf) 50%
-    );
+    background-image: linear-gradient(to right,
+            var(--planet-white-leaf),
+            var(--planet-sky-blue) 50%,
+            var(--planet-yellow-leaf) 50%);
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
@@ -201,6 +198,92 @@ a {
     margin-top: 8rem;
 }
 
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-button {
+    min-width: 300px;
+    min-height: 40px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: var(--planet-white-leaf);
+    background: #4a8da7;
+    /* background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%); */
+    border: none;
+    border-radius: 30px;
+    box-shadow: 12px 12px 24px rgba(74, 141, 167, .65);
+    text-align: center;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    top: 25%;
+    z-index: 2;
+    }
+  
+  /* a.home-button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  } */
+  
+  .home-button:hover, .home-button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+    background-color: #00FFCB;
+  }
+  
+  a.home-button:hover::before, .home-button:focus::before {
+    opacity: 1;
+  }
+  
+  a.home-button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid var(--planet-sky-blue);
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  a.home-button:hover::after, a.home-button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 250px;
+      height: 120px;
+      opacity: 0;
+    }
+  }
 /* --------------------------------------------------- STORE ------------------------------------- */
 .add-favourite {
     position: absolute;
@@ -246,7 +329,7 @@ a {
 
 /* --------------------------------------------------- BAG ------------------------------------- */
 
-.bag-active{
+.bag-active {
     color: var(--planet-yellow-leaf);
 }
 
@@ -273,7 +356,8 @@ a {
 }
 
 .toast-body .btn-checkout-bag {
-    min-width: 100%;;
+    min-width: 100%;
+    ;
 }
 
 /* --------------------------------------------------- TOAST ------------------------------------- */
@@ -335,20 +419,48 @@ span.horizontal-shake {
 /* --------------------------------------------------- KEY FRAMES ANIMATION ------------------------------- */
 /* FROM https://unused-css.com/blog/css-shake-animation/ */
 @keyframes horizontal-shaking {
-    0% { transform: translateX(0) }
-    25% { transform: translateX(5px) }
-    50% { transform: translateX(-5px) }
-    75% { transform: translateX(5px) }
-    100% { transform: translateX(0) }
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(5px)
+    }
+
+    50% {
+        transform: translateX(-5px)
+    }
+
+    75% {
+        transform: translateX(5px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
 }
 
 @keyframes tilt-shaking {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(0eg); }
-    75% { transform: rotate(-5deg); }
-    100% { transform: rotate(0deg); }
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0eg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
 
 /* --------------------------------------------------- RESPONSIVE ------------------------------------- */
 
@@ -364,19 +476,24 @@ span.horizontal-shake {
     .image-detail {
         height: 20rem;
     }
+
     .copyright {
         font-size: 12px;
         text-align: center;
     }
+
     .table-sm-font {
         font-size: 12px;
     }
+
     .toast {
         --bs-toast-max-width: 18rem;
     }
+
     .card-body {
         height: 11rem;
     }
+
     .container .account-box {
         max-width: 100%;
     }
