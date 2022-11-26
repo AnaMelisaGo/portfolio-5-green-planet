@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Favourites{% endblock %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="py-3 mt-md-5 mt-4 py-2 text-center container">
+        <div class="d-flex justify-content-start">
+            <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-dark">
+                <span><i class="fas fa-chevron-left"></i></span>
+                <span>Go Back</span>
+            </a>    
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-bold">Favourites Lists</h1>
+            </div>
+        </div>
+    </section>
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center mb-5">
+        {% for store in stores %}
+        <div class="col my-4 d-flex justify-content-center">
+            <div class="card position-relative" style="width: 18rem;">
+                <!-- favourite icon -->
+                <a class="hvr-icon-grow" href="{% url 'add_favourite' store.id %}">
+                    <i class="fas fa-heart add-favourite fs-1 text-neon-blue hvr-icon"></i>
+                </a>
+                {% if store.image %}
+                <a href="{% url 'store_detail' store.id %}">
+                    <img src="{{ store.image.url }}" class="card-img-top" alt="{{ store.store_name }}">
+                </a>
+                {% else %}
+                <a href="{% url 'store_detail' store.id %}">
+                    <img src="{{ MEDIA_URL }}no-image.jpg" class="card-img-top" alt="{{ store.store_name }}">
+                </a>
+                {% endif %}
+                <div class="card-body">
+                    <a class="store-card-title" href="#">
+                        <h4 class="card-title fw-bold">{{ store.store_name }}</h4>
+                    </a>
+                    <p class="card-text fs-6">{{ store.business_type.friendly_name }}</p>
+                    <div class="row text-end">
+                        <div class="col-4 px-2 text-start">
+                            <p><i class="fas fa-star text-dark-ocean"></i> <small>{{ store.rating }}</small></p>
+                        </div>
+                        <div class="col-3 px-0 offset-1">
+                            <p class="text-decoration-line-through text-muted fs-6">{{ store.original_price }}€</p>
+                        </div>
+                        <div class="col-3 px-0">
+                            <p class="fw-bold">{{ store.price }}€</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
+{%  block post_js %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#filter-selector').change(function() {
+        let selector = $(this);
+        let currentUrl = new URL(window.location);
+
+        let selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            let sort = selectedVal.split("_")[0];
+            let direction = selectedVal.split("_")[1];
+            if (sort == 'store') {
+                sort = `${sort}_name`;
+                direction = selectedVal.split("_")[2];
+            }
+            if (sort == 'business') {
+                sort = `${sort}_type`;
+                direction = selectedVal.split("_")[2];
+            }
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        }
+    }) 
+
+</script>
+{% endblock %}

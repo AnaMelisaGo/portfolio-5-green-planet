@@ -13,8 +13,14 @@
 {% block content %}
 <div class="container py-3 my-4 d-lg-flex justify-content-center">
     <div class="card text-bg-dark rounded-0 img-container">
-        <a class="hvr-icon-grow" href="#">
-            <i class="fas fa-heart add-favourite fs-1 text-white hvr-icon"></i>
+        <a class="hvr-icon-grow" href="{% url 'add_favourite' store.id %}">
+            {% if request.user.is_authenticated %}
+                {% if fave %}
+                    <i class="fas fa-heart add-favourite fs-1 text-neon-blue hvr-icon"></i>
+                {% else %}
+                    <i class="far fa-heart add-favourite fs-1 text-white hvr-icon"></i>
+                {% endif %}
+            {% endif %}
         </a>
         {% if store.image %}
         <a href="{{ store.image.url }}" target="_blank">
@@ -86,11 +92,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- Back to the store main page -->
+                <!-- Back button -->
                 <div class="d-grid col-6 mx-auto">
-                    <a href="{% url 'all_stores' %}" class="btn btn-outline-dark">
+                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-dark">
                         <span><i class="fas fa-chevron-left"></i></span>
-                        <span>Back to store</span>
+                        <span>Go Back</span>
                     </a>
                 </div>
                 <!-- Add to bag button -->

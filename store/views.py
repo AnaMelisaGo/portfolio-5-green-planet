@@ -8,11 +8,19 @@ from .models import Store, BusinessType
 from .forms import StoreForm, BusinessTypeForm
 
 
-# @required_login
-# def add_favourite(request, store_id):
-#     """
-#     Add favourites to profile
-#     """
+@login_required
+def add_favourite(request, store_id):
+    """
+    Add favourites to profile
+    """
+    store = get_object_or_404(Store, pk=store_id)
+    if store.favourites.filter(id=request.user.id).exists():
+        store.favourites.remove(request.user)
+    else:
+        store.favourites.add(request.user)
+
+    return redirect(request.META['HTTP_REFERER'])
+
 
 def all_stores(request):
     """
@@ -74,10 +82,14 @@ def store_detail(request, store_id):
     To view a single store and its detail
     """
     store = get_object_or_404(Store, pk=store_id)
+    fave = False
+    if store.favourites.filter(id=request.user.id).exists():
+        fave = True
 
     context = {
         'stores': 'active',
         'store': store,
+        'fave': fave,
     }
     return render(request, 'stores/store_detail.html', context)
 

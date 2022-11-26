@@ -116,7 +116,7 @@ class StripeWH_Handler:
                     store = Store.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_item = OrderItem(
-                            order=order,
+                            transaction=transaction,
                             store=store,
                             quantity=item_data,
                         )

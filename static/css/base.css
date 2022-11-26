@@ -23,10 +23,6 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-
     background-color: var(--planet-white-leaf);
     font-weight: 300;
     color: var(--planet-black-night);
@@ -96,6 +92,10 @@ a {
 
 .text-yellow-leaf {
     color: var(--planet-yellow-leaf);
+}
+
+.text-neon-blue {
+    color: #00FFCB;
 }
 
 /* --------------------------------------------------- NAVBAR ------------------------------------- */
@@ -203,6 +203,13 @@ a {
 }
 
 /* --------------------------------------------------- HOMEPAGE ------------------------------------- */
+.main-container {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
 .photo {
     background: url('/media/food-basket.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -294,7 +301,6 @@ a.home-button:hover::after, a.home-button:focus::after {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: aquamarine;
 }
 
 .store-card-title:hover {

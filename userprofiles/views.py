@@ -6,6 +6,18 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm, UserForm
 from checkout.models import Transaction
+from store.models import Store
+
+
+@login_required
+def favourites_list(request):
+    stores = Store.objects.all().filter(favourites=request.user)
+    template = 'profiles/favourites.html'
+    context = {
+        'stores': stores,
+        'account': 'active',
+    }
+    return render(request, template, context)
 
 
 @login_required

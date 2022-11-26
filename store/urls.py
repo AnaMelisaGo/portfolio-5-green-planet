@@ -26,5 +26,5 @@ urlpatterns = [
         views.delete_business_type,
         name='delete_business_type'
     ),
-    # path('add_favourite/<int:store_id>', views.add_favourite, name='add_favourite')
+    path('add_favourite/<int:store_id>', views.add_favourite, name='add_favourite')
 ]
