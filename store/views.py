@@ -8,6 +8,12 @@ from .models import Store, BusinessType
 from .forms import StoreForm, BusinessTypeForm
 
 
+# @required_login
+# def add_favourite(request, store_id):
+#     """
+#     Add favourites to profile
+#     """
+
 def all_stores(request):
     """
     To view all stores
