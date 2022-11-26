@@ -114,7 +114,7 @@ class StripeWH_Handler:
                         order_item = OrderItem(
                             order=order,
                             store=store,
-                            quantity=item_data,
+                            quantity=quantity,
                         )
                         order_item.save()
             except Exception as e:
