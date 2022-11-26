@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
@@ -36,6 +36,7 @@ def edit_profile(request):
             user_form.save()
             userprofile_form.save()
             messages.success(request, 'Profile updated successfully')
+            return redirect(reverse('user_profile'))
         else:
             messages.error(request,
                            ('Update failed. Please ensure '
