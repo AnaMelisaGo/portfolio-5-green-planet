@@ -62,7 +62,7 @@ class StripeWH_Handler:
             intent.latest_charge
         )
         billing_details = stripe_charge.billing_details  # updated
-        shipping_details = intent.shipping
+        # shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)  # updated
         # Update profile when save info is checked
         profile = None
@@ -70,7 +70,7 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone
+                profile.default_phone_number = billing_details.phone
                 profile.save()
 
         transaction_exists = False
@@ -96,7 +96,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} \
                          | SUCCESS: Verified order',
                     status=200
-                )
+            )
         else:
             transaction = None
             try:
@@ -114,7 +114,7 @@ class StripeWH_Handler:
                         order_item = OrderItem(
                             order=order,
                             store=store,
-                            quantity=quantity,
+                            quantity=item_data,
                         )
                         order_item.save()
             except Exception as e:
