@@ -3,6 +3,7 @@ const toastElList = document.querySelectorAll('.toast')
 const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl))
 toastList.forEach(toast => toast.show());
 
+// From https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view
 // Get the scroll to top button
 let mybutton = document.getElementById("btn-back-to-top");
 

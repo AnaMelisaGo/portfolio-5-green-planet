@@ -313,10 +313,11 @@ a.home-button:hover::after, a.home-button:focus::after {
 
 .card.img-container {
     min-width: 25rem;
+    min-height: 100%;
 }
 
 img.image-detail {
-    min-height: 25rem;
+    height: 25rem;
     width: 100%;
 }
 
@@ -481,7 +482,8 @@ p.business-text {
     color: var(--planet-white-leaf);
 }
 
-/* --------------------------------------------------- KEY FRAMES ANIMATION ------------------------------- */
+/* --------------------------------------------------- SCROLL TO TOP BUTTON ------------------------------- */
+/* from https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view */
 #btn-back-to-top {
     position: fixed;
     bottom: 20px;
