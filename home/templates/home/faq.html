@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- FAQ{% endblock %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-3 mt-5 mb-5 min-h-page">
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <h2 class="fw-bold fs-1">Frequently Asked Questions</h2>
+    <div class="row">
+        <div class="col-4">
+            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="#item-1">Mission</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-1-1">Benefit</a>
+                        <a class="nav-link ms-3 my-1" href="#item-1-2">Business</a>
+                    </nav>
+                    <a class="nav-link" href="#item-2">Products</a>
+                    <a class="nav-link" href="#item-3">Purchase</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-3-1">Payment method</a>
+                        <a class="nav-link ms-3 my-1" href="#item-3-2">Quantity</a>
+                        <a class="nav-link ms-3 my-1" href="#item-3-2">Payment</a>
+                    </nav>
+                    <a class="nav-link" href="#item-4">Delivery</a>
+                </nav>
+            </nav>
+        </div>
+
+        <div class="col-8">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
+                class="scrollspy-example-2" tabindex="0">
+                <div id="item-1">
+                    <h4 class="fw-bold">What is our mission?</h4>
+                    <p>Our mission is to reduce food waste and rescue them by selling them for lower cost.</p>
+                </div>
+                <div id="item-1-1">
+                    <h5 class="fw-bold">What are the consumer's benefits?</h5>
+                    <p>First, save money. We guarantee a very good discount to all the products sold in our website. Second, save our planet for a better and cleaner environment thus we are trying to reduce waste. Lastly, enjoy a nice good meal.</p>
+                </div>
+                <div id="item-1-2">
+                    <h5 class="fw-bold">How about businesses?</h5>
+                    <p>Business can have a lot of benefit due to the fact that even their unsold products are being sold, no money, effort and food are wasted.</p>
+                </div>
+                <div id="item-2">
+                    <h4 class="fw-bold">Can I buy any products?</h4>
+                    <p>We offer low cost food from restaurants, hotels, mini stores, supermarket and even bakery shops. It is a total money saver because we make sure that all of our promotions are affordable for everybody.</p>
+                </div>
+                <div id="item-3">
+                    <h4 class="fw-bold">How do I purchase?</h4>
+                    <p>You can shop online through this website, under the section Stores. Browse through the different stores that offers meal boxes and bags for lower cost.</p>
+                </div>
+                <div id="item-3-1">
+                    <h5 class="fw-bold">Can I pay in cash?</h5>
+                    <p>Unfortunately, we only offer these promos online so cash isn't accepted. The payment is via online using your valid debit or credit card.</p>
+                </div>
+                <div id="item-3-2">
+                    <h5 class="fw-bold">Why I can't purchase more than 1 bag?</h5>
+                    <p>In Green Planet we promote smart buying. As our mission states, we want to fight food waste. We don't want everyone purchasing loads of bags that won't be consumed afterwards. But don't worry, we assure you that each bag has everything you need.</p>
+                </div>
+                <div id="item-3-3">
+                    <h5 class="fw-bold">Can I pay when collecting the bag?</h5>
+                    <p>The payment is done before collection to ensure that the bag has it's owner and ready for collection. We don't want our customers to be left out of their bags because somebody else paid it first.</p>
+                </div>
+                <div id="item-4">
+                    <h4 class="fw-bold">Can I make it delivered home?</h4>
+                    <p>Green Planet is still growing and trying to provide the best for our customers. But as of now, home delivery is not yet on our bucket. The bags are only available for collection from the store.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

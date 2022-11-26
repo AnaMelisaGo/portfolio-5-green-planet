@@ -28,10 +28,17 @@ def privacy(request):
 def business(request):
     """
     To render page for business who wants to join
-    
     """
     template = 'home/business.html'
     context = {
         'business': 'active',
     }
     return render(request, template, context)
+
+
+def faq_page(request):
+    """
+    To render the frequently asked question page for users
+    """
+    template = 'home/faq.html'
+    return render(request, template)
