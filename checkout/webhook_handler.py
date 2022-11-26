@@ -60,7 +60,7 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
+            intent.charges
         )
         billing_details = stripe_charge.billing_details  # updated
         # shipping_details = intent.shipping
