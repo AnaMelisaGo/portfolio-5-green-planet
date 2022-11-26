@@ -59,12 +59,16 @@ class StripeWH_Handler:
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
-        stripe_charge = stripe.Charge.retrieve(
-            intent.charges
-        )
-        billing_details = stripe_charge.billing_details  # updated
-        # shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)  # updated
+        # stripe_charge = stripe.Charge.retrieve(
+        #     intent.charges
+        # )
+        # billing_details = stripe_charge.billing_details  # updated
+        # # shipping_details = intent.shipping
+        # grand_total = round(stripe_charge.amount / 100, 2)  # updated
+        
+        billing_details = intent.charges.data[0].billing_details
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
+
         # Update profile when save info is checked
         profile = None
         username = intent.metadata.username
