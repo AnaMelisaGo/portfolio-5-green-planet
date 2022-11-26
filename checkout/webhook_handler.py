@@ -92,7 +92,7 @@ class StripeWH_Handler:
                 )
                 transaction_exists = True
                 break
-            except Transaction.DoesNOtExists:
+            except Transaction.DoesNotExists:
                 attempt += 1
                 time.sleep(1)
         if transaction_exists:

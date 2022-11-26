@@ -310,7 +310,7 @@ a.home-button:hover::after, a.home-button:focus::after {
 }
 
 img.image-detail {
-    min-height: 40rem;
+    min-height: 25rem;
     width: 100%;
 }
 
@@ -334,6 +334,17 @@ img.image-detail {
 
 .dropdown .filter-link:hover {
     color: var(--planet-brown-leaf);
+}
+
+.container-add {
+        max-width: 660px;
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-right: auto;
+        margin-left: auto;
 }
 
 /* --------------------------------------------------- BAG ------------------------------------- */
@@ -503,6 +514,10 @@ span.horizontal-shake {
     .mission-container>h5 {
         font-size: 25px;
     }
+
+    .container-add {
+        max-width: 520px;
+}
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -544,4 +559,8 @@ span.horizontal-shake {
         font-size: 15px;
         top: 30%;
     }
+
+    .container-add {
+        max-width: 960px;
+}
 }

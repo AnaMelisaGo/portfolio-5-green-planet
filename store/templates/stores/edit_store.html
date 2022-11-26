@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-2 mb-5 min-h-page bg-light rounded py-2">
+<div class="container-add py-3 mt-md-5 mt-4 mb-5 min-h-page bg-light rounded py-2">
     <div class="row">
         <div class="col-12 text-center py-2">
             <h2 class="fw-bold">Update Store</h2>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-10 col-lg-8">
             <form method="POST" action="{% url 'edit_store' store.id %}" class="form mb-5" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
