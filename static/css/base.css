@@ -383,13 +383,12 @@ img.image-detail {
 
 .toast-body .btn-checkout-bag {
     min-width: 100%;
-    ;
 }
 
 /* --------------------------------------------------- TOAST ------------------------------------- */
 
 .message-container {
-    margin-top: 5rem;
+    margin-top: 7rem;
     position: fixed;
     z-index: 9999999;
     top: 0;

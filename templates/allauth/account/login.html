@@ -9,14 +9,19 @@
 
 {% block inner_content %}
 
-<h2 class="text-center fw-bold">{% trans "Sign In" %}</h2>
+<h2 class="text-center fw-bold">{% trans "Log In" %}</h2>
 
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+<div class="fs-6 d-flex">{% blocktrans with site.name as site_name %}Please sign in with one
+    of your existing third party accounts. Or,
+    <span class="mx-1 constant-tilt-shake">
+		<a class="text-brown-leaf text-decoration-underline" href="{{ sign_url }}">
+			sign up
+		</a>
+	</span>
+    for a {{ site_name }} account and sign in below:{% endblocktrans %}</div>
 
 <div class="socialaccount_ballot">
 
@@ -31,8 +36,15 @@
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p class="fs-6">{% blocktrans %}If you have not created an account yet, then please
-    <a class="text-brown-leaf text-decoration-underline" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<div class=" fs-6 d-flex mb-2">
+	If you have not created an account yet, then please
+	<span class="mx-1 constant-tilt-shake">
+		<a class="text-brown-leaf text-decoration-underline" href="{{ login_url }}">
+			sign up
+		</a>
+	</span>
+    first.
+</div>
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
