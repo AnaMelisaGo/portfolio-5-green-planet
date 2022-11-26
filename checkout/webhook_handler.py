@@ -65,7 +65,6 @@ class StripeWH_Handler:
         # billing_details = stripe_charge.billing_details  # updated
         # # shipping_details = intent.shipping
         # grand_total = round(stripe_charge.amount / 100, 2)  # updated
-        
         billing_details = intent.charges.data[0].billing_details
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
@@ -113,7 +112,7 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
-                for item_id, item_data in json.load(bag).items():
+                for item_id, item_data in json.loads(bag).items():
                     store = Store.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_item = OrderItem(
