@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- {{ store.store_name }}{% endblock %}
+
+{% block page_header %}
+<div class="container top-space">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container py-3 mt-5 mb-5 min-h-page">
+    <div class="row">
+        <div class="col-lg-6 col-12 business-image p-0">
+            <img src="{{ MEDIA_URL }}basket-veggies.jpg" alt="Basket of veggies">
+        </div>
+        <div class="col-lg-6 col-12 p-0 bg-light">
+            <h3 class="business-header">Join us to fight food waste</h3>
+            <p class="business-text px-5 mb-5">Initiative and strategic plan is what we need to put an end to the
+                increasing food waste. Here in Green Planet we will give you the best option for your business.</p>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="card-group">
+            <div class="card me-1">
+                <img src="{{ MEDIA_URL }}restaurants.jpg" class="card-img-top" alt="Restaurant">
+                <div class="card-body overflow-auto">
+                    <h5 class="card-title fw-bold">Restaurants, hotels, factories</h5>
+                    <p class="card-text">
+                        It is more likely to have more surplus in restaurants, hotels and factories. But you can still
+                        sell those
+                        unconsumed food and avoid throwing them away.
+                    </p>
+                </div>
+            </div>
+            <div class="card mx-1">
+                <img src="{{ MEDIA_URL }}bakery.jpg" class="card-img-top" alt="Bakery">
+                <div class="card-body overflow-auto">
+                    <h5 class="card-title fw-bold">Bakery, mini food shops</h5>
+                    <p class="card-text">Production costs money. Here in Green Planet we provide a space to sell your
+                        unsold products so you don't throw your money away.</p>
+                </div>
+            </div>
+            <div class="card ms-1">
+                <img src="{{ MEDIA_URL }}supermarket.jpg" class="card-img-top" alt="Supermarket">
+                <div class="card-body overflow-auto">
+                    <h5 class="card-title fw-bold">Supermarkets, mini store markets</h5>
+                    <p class="card-text">Lots of goods and products ends up in the garbage due to the increasing costs
+                        of living and few people purchase them. Products from this sector can still be consumed even
+                        after a few days, don't throw them away. Others might need it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Contact us for more details so we can assist your needs and provide the best solution for your business</h3>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col m-5 text-center">
+            <a class="btn btn-contact-us" href="https://us8.list-manage.com/contact-form?u=fd979b00106049a7ad2afe513&form_id=73120f62327d39d62dd7bc5445f99678" target="_blank">
+                Contact Us
+            </a>
+        </div>
+    </div>
+</div>
+    {% endblock %}

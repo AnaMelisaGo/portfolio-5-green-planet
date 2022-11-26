@@ -23,3 +23,15 @@ def privacy(request):
     To render privacy page
     """
     return render(request, 'home/privacy.html')
+
+
+def business(request):
+    """
+    To render page for business who wants to join
+    
+    """
+    template = 'home/business.html'
+    context = {
+        'business': 'active',
+    }
+    return render(request, template, context)

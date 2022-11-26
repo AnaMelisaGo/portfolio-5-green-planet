@@ -441,6 +441,46 @@ span.horizontal-shake {
     animation: horizontal-shaking 0.35s infinite;
 }
 
+/* --------------------------------------------------- BUSINESS PAGE ------------------------------------- */
+
+.business-image {
+    max-width: 80rem;
+}
+
+.business-image img {
+    width: 100%;
+    height: 100%;
+}
+
+h3.business-header{
+    font-size: 70px;
+    padding: 20px 10px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--planet-dark-tree);
+}
+
+p.business-text {
+    font-size: 25px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.btn-contact-us {
+    font-size: 30px;
+    border: 1px solid var(--planet-sky-blue);
+    background-color: var(--planet-sky-blue);
+    border-radius: 50px;
+    padding: 20px 50px;
+    box-shadow: 6px 6px 10px var(--planet-trans-black);
+}
+
+.btn-contact-us:hover {
+    border: 1px solid var(--planet-dark-ocean);
+    background-color: var(--planet-dark-ocean);
+    color: var(--planet-white-leaf);
+}
+
 /* --------------------------------------------------- KEY FRAMES ANIMATION ------------------------------- */
 /* FROM https://unused-css.com/blog/css-shake-animation/ */
 @keyframes horizontal-shaking {
@@ -567,5 +607,13 @@ span.horizontal-shake {
 
     .container-add {
         max-width: 960px;
-}
+    }
+
+    h3.business-header{
+        font-size: 50px;
+    }
+
+    p.business-text {
+        font-size: 20px;
+    }
 }
