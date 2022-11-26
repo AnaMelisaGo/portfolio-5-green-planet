@@ -16,8 +16,14 @@ def add_favourite(request, store_id):
     store = get_object_or_404(Store, pk=store_id)
     if store.favourites.filter(id=request.user.id).exists():
         store.favourites.remove(request.user)
+        messages.info(
+            request, f'You remove { store.store_name } from your favourites!'
+        )
     else:
         store.favourites.add(request.user)
+        messages.info(
+            request, f'You added { store.store_name } to your favourites!'
+        )
 
     return redirect(request.META['HTTP_REFERER'])
 
