@@ -8,9 +8,6 @@ We appreciate your trust you have given to us and thank you for helping to save 
 
 Transaction number: {{ transaction.transaction_number }}
 Date: {{ transaction.date }}
-
-Collect from: {{ transaction.orderitem.store }}
-Total bag: {{ transaction.orderitem.quantity }}
 Total: {{ transaction.grand_total }}
 
 Kind regards,
