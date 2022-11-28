@@ -478,6 +478,12 @@ p.business-text {
     color: var(--planet-white-leaf);
 }
 
+
+/* --------------------------------------------------- SCROLL TO TOP BUTTON ------------------------------- */
+.error-container img {
+    width: 32rem;
+}
+
 /* --------------------------------------------------- SCROLL TO TOP BUTTON ------------------------------- */
 /* from https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view */
 #btn-back-to-top {

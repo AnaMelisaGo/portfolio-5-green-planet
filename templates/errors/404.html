@@ -16,13 +16,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="container py-3 mt-md-5 mt-4 mb-5 bg-light rounded py-2 ">
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-12">
+<div class="container d-flex justify-content-center py-3 mt-md-5 mt-4 mb-5 bg-light rounded py-2 ">
+    <div class="row">
+        <div class="col-12 text-center error-container">
             <img src="{{ MEDIA_URL }}error-404.png" alt="Error 404 image">
             <h2 class="fs-1">Page not found</h2>
             <p>You're lost! Please come back down to earth!</p>
-            <button class="btn btn-dark-tree rounded-pill">Go home</button>
+            <a href="{% url 'home' %}" class="btn btn-dark-ocean rounded-pill">Go home</a>
         </div>
     </div>
 </div>
