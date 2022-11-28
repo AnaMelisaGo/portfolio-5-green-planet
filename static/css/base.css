@@ -360,10 +360,6 @@ img.image-detail {
     color: var(--planet-yellow-leaf);
 }
 
-.min-h-page {
-    min-height: 50vh;
-}
-
 .quantity-input {
     margin: 10px;
     max-width: 3rem;
