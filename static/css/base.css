@@ -202,6 +202,14 @@ a {
     width: 8rem;
 }
 
+li a.social-footer {
+    color: var(--planet-white-leaf);
+}
+
+li a.social-footer:hover {
+    color: var(--planet-yellow-leaf);
+}
+
 /* --------------------------------------------------- HOMEPAGE ------------------------------------- */
 .main-container {
     min-height: 40vh;
