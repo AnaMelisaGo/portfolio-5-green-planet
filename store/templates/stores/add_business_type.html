@@ -25,33 +25,15 @@
             <div class="list-group">
                 <div class="list-group-item bg-dark-tree text-white" aria-current="true">List of business types</div>
                 {% for type in business_type %}
-                
-                <div class="list-group-item d-flex justify-content-between">
-                    <!-- delete modal -->
-                    <!-- <div class="modal fade" id="delete-btype" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    Are you sure you want to delete {{ type.id }}?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
-                                    <a href="{% url 'delete_business_type' type.id %}" class="btn btn-danger fs-6 text-white"></i> Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <span>
-                        {{ type.friendly_name }}
-                    </span>
-                    <span>
-                        <a href="{% url 'delete_business_type' type.id %}" class="text-danger"><i class="fas fa-minus-circle"></i></a>
-                        <a href="{% url 'edit_business_type' type.id %}" class="text-info ms-2"><i class="fas fa-pen"></i></a>
-                        <!-- <button type="button" class="btn borderless fs-6 text-danger p-0" data-bs-toggle="modal" data-bs-target="#delete-btype">
-                            Delete {{ type.id }}
-                        </button> -->
-                    </span>
-                </div>
+                    <div class="list-group-item d-flex justify-content-between">
+                        <span>
+                            {{ type.friendly_name }}
+                        </span>
+                        <span>
+                            <a href="{% url 'delete_business_type' type.id %}" class="text-danger"><i class="fas fa-minus-circle"></i></a>
+                            <a href="{% url 'edit_business_type' type.id %}" class="text-info ms-2"><i class="fas fa-pen"></i></a>
+                        </span>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -69,6 +51,4 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}
