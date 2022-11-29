@@ -1,5 +1,5 @@
 
-# Green Planet Save food
+# Green Planet
  
 ![iamresponsive View](media/readme-files/screenshot-iamresponsive.jpg)
  

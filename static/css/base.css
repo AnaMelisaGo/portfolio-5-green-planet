@@ -486,7 +486,8 @@ p.business-text {
 
 /* --------------------------------------------------- SCROLL TO TOP BUTTON ------------------------------- */
 /* from https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view */
-#btn-back-to-top {
+#btn-back-to-top,
+#btn-back-to-top-store {
     position: fixed;
     bottom: 20px;
     right: 20px;

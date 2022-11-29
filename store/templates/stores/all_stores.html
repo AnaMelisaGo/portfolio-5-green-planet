@@ -14,6 +14,9 @@
 {% block content %}
 <main>
     <section class="py-3 mt-md-5 mt-4 py-2 text-center container">
+        <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top-store">
+            <i class="fas fa-arrow-up"></i>
+        </button>
         <div class="row">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">All stores</h1>
@@ -120,6 +123,33 @@
 {%  block post_js %}
 {{ block.super }}
 <script type="text/javascript">
+    // From https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view
+    // Get the scroll to top button
+    let storebutton = document.getElementById("btn-back-to-top-store");
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+        ) {
+            storebutton.style.display = "block";
+        } else {
+            storebutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    storebutton.addEventListener("click", backToTop);
+
+    function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+
+    // To filter the items in store page
     $('#filter-selector').change(function() {
         let selector = $(this);
         let currentUrl = new URL(window.location);
