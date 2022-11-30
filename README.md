@@ -212,7 +212,15 @@ The wireframes were created for each individual page on three different screen s
 
 ## Design Thinking
 
-Design thinking agiling
+Design Thinking was done with Agile methology in Github Projects using the kanban board.
+
+User stories were added as issues as a guide for development.
+
+I added tabs to visualize and easy access each iteration and moving each issue when on process, in testing mode or feature done.
+
+Other tools or helpers were used, like: a spreadsheet, Google docs and a pen and a notebook.
+
+![Green Planet Project](media/readme-files/screenshots/greenplanet-kanban.jpg)
  
 ## Technology Used
  
@@ -291,9 +299,88 @@ The database schema was traced using dbdiagram. The database schema serves as a 
 ## Features
  
 The project boasts several key features:
-* Create: ...
+
+### Logo and navbar
+
+The logo was created using the LogoDesigner app with templates to use for free. It  creates a png image with great resolution. The logo for this project  was designed to appear as a globe to simulate the shape of the planet as the name of the company. The circular shape is formed by forks to give more meaning to the purpose of this project.
+
+![logo and navbar](media/readme-files/screenshots/logo-navbar.jpg)
+
+The main nav bar gives the user a different menu to browse the different pages of the application. It has a home button, stores button to show a dropdown list for the user to choose from. For businesses button is for company business to view our mission and initiative plan and to be able to join so they can sell and leftover products they don't totally consume. My account button is also provided so that the user can log in or sign up when they want to. The basket is also visible in the navbar for easy access when viewing a purchase and to make the payment. It also has a search button for the user to search any item.
+When a page is currently viewed by the user, the navbar button is highlighted so that it gives a feedback to the user what page they are at.
+In the responsive design, the navbar is hidden and can only be shown when clicked the square button.The basket is shown in between the logo and the square button in small devices for easy access.
+
+#### Mobile navbar
+
+![Mobile navbar](media/readme-files/screenshots/mobile-navbar.jpg)
+
+### Homepage
+
+![Homepage](media/readme-files/screenshots/home-page.jpg)
+
+#### Our mission
+
+![Our mission](media/readme-files/screenshots/our-mission.jpg)
+
+#### How to save money guide
+
+![Save money](media/readme-files/screenshots/guide-to-use.jpg)
+
+### Footer
+
+The footer has different options to choose from. It has different options such as about, Our mission, how to save money, Terms and conditions, and policy.
+It also has a section in the footer where any users can subscribe to the newsletter of the application.
+At the bottom of the footer it has the copyright with my name as the developer, and a few buttons that lead the user to the social media account of the company. It opens in a different tab to prevent the user from being taken away from the webpage.
+
+![Footer](media/readme-files/screenshots/footer.jpg)
 
 [Back to Top](#table-of-contents)
+
+### Store Page
+
+![Store page](media/readme-files/screenshots/store-page.jpg)
+
+### For Businesses
+
+![For businesses](media/readme-files/screenshots/for-business.jpg)
+
+### Account
+
+![Profile page](media/readme-files/screenshots/profile-page.jpg)
+
+### Bag
+
+![Bag content](media/readme-files/screenshots/bag-content.jpg)
+
+[Back to Top](#table-of-contents)
+
+### Checkout
+
+#### Checkout with user details
+
+![Checkout user details](media/readme-files/screenshots/checkout-user.jpg)
+
+#### Checkout payment
+
+![Checkout](media/readme-files/screenshots/checkout-payment.jpg)
+
+### Checkout success message
+
+![Checkout](media/readme-files/screenshots/checkout-successful.jpg)
+
+[Back to Top](#table-of-contents)
+
+### Contact us response
+
+![Contact us response](media/readme-files/screenshots/contact-us-response.jpg)
+
+### Mailchimp subscription form
+
+![Subscription form](media/readme-files/screenshots/mailchimp-subscription-form.jpg)
+
+#### Subscription response
+
+![Subscription form](media/readme-files/screenshots/mailchimp-subscription-feedback.jpg)
 
 ### Web Marketing
 
@@ -505,14 +592,40 @@ Config vars are needed to be created in Heroku so that to conect the app to Djan
  
 ## Credits
  
-* Detail credits
+### Photos
+
+   - Pixabay
+   - Pexels
+   - Vecteezy
+
+### Code
+
+   - Stackoverflow
+   - Boutique Ado Walkthrough
+   - [Add favourites](https://www.google.com/search?q=how+to+add+an+item+as+favorites+in+django&rlz=1C1VDKB_esES996ES996&oq=how+to+add+an+item+as+favorites+in+django&aqs=chrome..69i57j33i160.11627j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_26JwY5-KJYzbgQbxlbKQBg_33)
+   - [Costumize user model and extend user field](https://www.youtube.com/watch?v=NLHmadrP8Y4)
+   - [Loader animation](https://webdeasy.de/en/css-loading-animations/)
+   - [Buzzing animation in Login and Signup form](https://unused-css.com/blog/css-shake-animation/)
+
+### Other
+
+   - [Color pallete](http://paperheartdesign.com/blog/color-palette-terrific-teal)
+   - [Free privacy policy generator]( https://www.privacypolicygenerator.info/)
  
 [Back to Top](#table-of-contents)
  
 #### Special Thanks & Acknowledgements:
+
+* To my mentor who has been guiding and helping me through out the project. He's been so friendly and kind.
+
+* To all the tutors who helped me fix a lot of bugs in my code. You were all a life saver.
  
-* Team 11 🤜
- 
-###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's __________</i>
+* Team 11 🤜 Christmas Hackathon who inspires me everyday.
+
+* To my family, most especially to my husband who was very supportive throughout my journey, and to my daughter who gives me strength to continue.
+
+* To the slack community and all my fellow student in Code Institute.
+
+###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's Porject Portfolio 4</i>
  
 [Back to Top](#table-of-contents)
