@@ -370,6 +370,10 @@ At the bottom of the footer it has the copyright with my name as the developer, 
 
 [Back to Top](#table-of-contents)
 
+#### Notification message
+
+![Notification](media/readme-files/screenshots/toast-message.jpg)
+
 ### Contact us response
 
 ![Contact us response](media/readme-files/screenshots/contact-us-response.jpg)
