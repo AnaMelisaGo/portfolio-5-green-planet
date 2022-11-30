@@ -1,6 +1,6 @@
 // Toast
-const toastElList = document.querySelectorAll('.toast')
-const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl))
+const toastElList = document.querySelectorAll('.toast');
+const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl));
 toastList.forEach(toast => toast.show());
 
 // From https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view

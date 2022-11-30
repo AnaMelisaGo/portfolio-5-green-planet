@@ -267,11 +267,9 @@ Design thinking agiling
 
 * Validator used:
    - [W3C Markup Validator](https://validator.w3.org/)
-   - [W3C CSS Validator](https://validator.w3.org/)
+   - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
    - [JSHint](https://jshint.com/)
    - [Pep8 CI](https://pep8ci.herokuapp.com/)
-
-Testing and results can be found [here](testing.md).
 
 <br>
 
@@ -354,19 +352,9 @@ Mailchimp was used for the subscription form for newsletter that can help optimi
  
 ## Testing
  
-Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Tested the website in different devices and sizes. Testing was carried out with the following validators:
+Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Tested the website in different devices and sizes.
 
-   - W3C Markup and CSS Validator
-
-   - JSHint Validator
-
-   - PEP8 CI Validator
-
-All validity tests passed.
-
-#### Found Bugs and Fixes:
- 
-During manual testing some minor and major bugs was encountered.
+Testing and results can be found [here](testing.md).
  
 [Back to Top](#table-of-contents)
  
