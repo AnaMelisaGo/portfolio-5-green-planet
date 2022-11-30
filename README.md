@@ -15,8 +15,7 @@
        * [1. Font](#1-font)
        * [2. Color Scheme](#2-color-scheme)
        * [3. Logo](#3-logo)
-       * [4. Geometry](#4-geometry)
-       * [5. Wireframing](#5-wireframing)
+       * [4. Wireframing](#5-wireframing)
 * [Technology Used](#technology-used)
 * [Database](#database)
 * [Features](#features)
@@ -136,30 +135,78 @@ The color schema was inspired by the colors of a dark night forest. Dark green a
 `#99C233` is a neon green used in the navbar
  
 ##### 3. Logo
-The logo was ... add detail, or remove as necessary
+The logo was created using the LogoDesigner app with templates to use for free. It  creates a png image with great resolution. The logo for this project  was designed to appear as a globe to simulate the shape of the planet as the name of the company. The circular shape is formed by forks to give more meaning to the purpose of this project.
  
-![show site logo here](assets/docs/image.png)
- 
-##### 4. Geometry
- 
-The application's geometrical aspects...
+![The Logo of Green Planet](media/green-planet-logo.png)
  
 ##### 5. Wireframing
  
 The wireframes were created for each individual page on three different screen sizes. All the wireframes are down below.
  
 <details>
-<summary>Wireframes</summary>
-Home page
- 
-![Home page](#)
- 
-Login/Register page
- 
-![Login/Register page](#)
- 
+<summary>Home page</summary>
+
+![Home page](media/readme-files/wireframes/home-page.png)
+
 </details>
- 
+
+<details>
+<summary>Footer</summary>
+
+![Footer](media/readme-files/wireframes/footer.png)
+
+</details>
+
+<details>
+<summary>Store Page</summary>
+
+![Store](media/readme-files/wireframes/store-page.png)
+
+</details>
+
+<details>
+<summary>Add Store</summary>
+
+![Add store](media/readme-files/wireframes/add-store.png)
+</details>
+
+<details>
+
+<summary>Store Detail</summary>
+
+![Store Detail](media/readme-files/wireframes/store-detail.png)
+
+</details>
+<details>
+
+<summary>Business Type Cateogry page</summary>
+
+![Business Type Category](media/readme-files/wireframes/add-business-type.png)
+
+</details>
+
+<details>
+<summary>Profile ppage</summary>
+
+![Profile page](media/readme-files/wireframes/profile-page.png)
+</details>
+
+<details>
+<summary>Bag</summary>
+
+![Bag](media/readme-files/wireframes/bag.png)
+
+</details>
+
+<details>
+<summary>Checkout</summary>
+
+![Checkout](media/readme-files/wireframes/checkout.png)
+
+</details>
+
+<br>
+
 [Back to Top](#table-of-contents)
  
 ## Technology Used
