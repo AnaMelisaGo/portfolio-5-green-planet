@@ -13,6 +13,7 @@
 
 {% block content %}
 <main>
+    <!-- Heading -->
     <section class="py-3 mt-md-5 mt-4 py-2 text-center container">
         <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top-store">
             <i class="fas fa-arrow-up"></i>
@@ -122,7 +123,7 @@
 
 {%  block post_js %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     // From https://mdbootstrap.com/snippets/standard/mdbootstrap/2964350#js-tab-view
     // Get the scroll to top button
     let storebutton = document.getElementById("btn-back-to-top-store");

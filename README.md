@@ -271,6 +271,8 @@ Design thinking agiling
    - [JSHint](https://jshint.com/)
    - [Pep8 CI](https://pep8ci.herokuapp.com/)
 
+Testing and results can be found [here](testing.md).
+
 <br>
 
 ## Database
@@ -346,17 +348,19 @@ Mailchimp was used for the subscription form for newsletter that can help optimi
 
 * Expand the FAQ content thus it is not complete, and fix the scrollspy problem and the UI of this page is not good.
 
-* Add a blog section where admin, shoppers, or guests can browse to any interesting content regarding food saving, money saving, keeping the environment clean and reducing food waste at home or inside their businesses. 
+* Add a blog section where admin, shoppers, or guests can browse to any interesting content regarding food saving, money saving, keeping the environment clean and reducing food waste at home or inside their businesses.
+
+* Add the filter all in the navbar instead of using it inside the store webpage.
  
 ## Testing
  
 Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Tested the website in different devices and sizes. Testing was carried out with the following validators:
 
-   - PEP8 python Validator
-
    - W3C Markup and CSS Validator
 
    - JSHint Validator
+
+   - PEP8 CI Validator
 
 All validity tests passed.
 
