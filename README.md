@@ -6,8 +6,9 @@
 ***
  
 ## Table of Contents:
-* [What does it do and what does it need to fulfill?](#what-does-it-do-and-what-does-it-need-to-fulfill)
+* [What does this project do?](#what-does-it-do-and-what-does-it-need-to-fulfill)
 * [Functionality of Project](#functionality-of-project)
+* [Business Model](#business-model)
 * [User Experience](#user-experience)
    * [User Stories](#user-stories)
    * [Design](#design)
@@ -29,7 +30,7 @@
 ***
 
  
-## What does it do and what does it need to fulfill?
+## What does this project do?
 One of the major problems in our modern world that we are facing right now is the massive waste we all produce each day and it has a terrible impact on our environment. One third of our yearly food supply is thrown away to the garbage and this is not good for our society and to our environment.
 
 
@@ -62,18 +63,59 @@ The footer has different links to browse for the users' additional information a
 
  
 [Back to top](#table-of-contents)
- 
+
+## Business Model
+
+The business model for this ecommerce project is B2C (Business to Customer). The customer purchase a food from a business and the customer should pay in advance via online using Stripe.
+
 ## User Experience:
  
 #### User Stories:
-_Generic (Guest/Public) User:_
-* As a Generic User, I want to...
+_Generic User (guest/registered):_
+* As a generic/registered, I can view the contents and payment guidelines in the homepage so that I am well informed about the website.
+* As a generic/registered, I can navigate throught different pages of the website so that I can browse easily from one page to another using the navigation bar. 
+* As a generic/registered, I want a home button so that I can return back to the homepage safely.
+* As a generic/registered, I can click the social media links from the footer so that I can browse to different social media pages of the website.
+* As a generic/registered user I can subscribe to the website's newsletter so that I recieve especial information, content that might interest me and new promotions in my email address.
+* As a generic/registered user I can sign up to the website so that I can create my own profile to easily access my contact details when purchasing something from the website.
+* As a generic/registered user I can browse through the frequently asked question (FAQ) page so that I can gather more information from other users questions.
+* As a generic/registered user I can access the Store page easily so I can browse to all the stores that offers great promotions.
  
-_Registers (Logged in) User:_
-* As a Registered User, I want to...
+_Registered (Logged in) User:_
+* As a Registered User, I can log in or log out to my user profile so that I can access my personal contact details.
+* As a Registered User, I can get an email confirmation after registration so that I know that my registration was successful.
+* As a Registered User, I can have my profile page so that I can view and edit my personal contact information.
+* As a Registered User, I can view my favourites stores so that I can browse and purchase from them easily.
+* As a Registered User, I can give my rating to a store so that other users can see my feedback.
+* As a Registered User, I can view my purchase history so that I can view all the list of previous transactions.
+
+_Shopper:_
+* As a shopper I can browse through the different stores so that I can shop easily.
+* As a shopper I can add items in the bag so that I can continue shopping or pay for the item faster.
+* As a shopper I can select an specific business type category so that I can browse and search a store faster.
+* As a shopper I can put filter in my query so that I can view the items according to my preference, such as low to high price, high to low rating.
+* As a shopper I can view a single store so that I can see important details like the details of each bag, price, rating, images etc.
+* As a shopper I can see the total amount of my purchase in the navbar so that I can keep track of my expenses.
+* As a shopper I can easily view the contents of my bag when I click the Add to Bag button so that I know what I added previously and make the checkout easily without clicking the shopping bag button.
+* As a shopper I can make the checkout through the bag or the notification pop up so that I can make the payment for the bag of food from the store.
+* As a shopper I can make the payment online so that it is easier and faster to finish the transaction.
+* As a shopper I can have a feedback in the website so that I am informed if the transaction is successful.
+* As a shopper I can recieve a confirmation email of the purchase so that I can collect / pick up my bag of food.
+
+_Administrator:_
+* As an admin I want to be able to add more store with the details of the items they sell so that I can provide more stores to the users.
+* As an admin I want to be able to delete a store to update the website from any old or not active businesses.
+* As an admin I want to add a business type category so that I can add it to a new store.
+* As an admin I want to be able to delete a business type  category without losing the stores data so that I can update a business type if needed.
+* As an admin I want to provide terms and conditions to all users so that they are aware of and well informed.
+* As an admin I want to provide privacy policy to the users so that we can can guarantee their data security.
  
 _Developer:_
-* As a Developer, I want to...
+* As a Developer, I want to learn how to implement an ecommerce website.
+* As a Developer, I want to be able to put a secure payment transaction to the ecommerce web application.
+* As a Developer, I want to keep learning new staff about software development and improve my knowledge and skills.
+* As a Developer, I want to implement a good SEO for the website to attract and engage more users.
+* As a Developer, I want to keep all the process organize using the Agile software development approach.
  
 #### Design
  
