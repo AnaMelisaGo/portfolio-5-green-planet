@@ -7,7 +7,9 @@
  
 ## Table of Contents:
 * [What does this project do?](#what-does-it-do-and-what-does-it-need-to-fulfill)
-* [Functionality of Project](#functionality-of-project)
+* [Introduction](#introduction)
+   * [Favicon](#favicon)
+   * [Functionality](#functionality-of-project)
 * [Business Model](#business-model)
 * [User Experience](#user-experience)
    * [User Stories](#user-stories)
@@ -16,12 +18,13 @@
        * [2. Color Scheme](#2-color-scheme)
        * [3. Logo](#3-logo)
        * [4. Wireframing](#5-wireframing)
+* [Design Thinking](#design-thinking)
 * [Technology Used](#technology-used)
 * [Database](#database)
 * [Features](#features)
+   * [Web Marketing](#web-marketing)
    * [Future Features](#future-features)
 * [Testing](#testing)
-   * [Defensive Design](#defensive-design)
 * [Deployment](#deployment)
 * [Credits](#credits)
    * [Special Thanks & Acknowledgements](#special-thanks--acknowledgements)
@@ -29,15 +32,13 @@
 ***
 
  
-## What does this project do?
-One of the major problems in our modern world that we are facing right now is the massive waste we all produce each day and it has a terrible impact on our environment. One third of our yearly food supply is thrown away to the garbage and this is not good for our society and to our environment.
+## Introduction
 
+One of the major problems in our modern world that we are facing right now is the massive waste we all produce each day and it has a terrible impact on our environment. One third of our yearly food supply is thrown away to the garbage and this is not good for our society and to our environment.
 
 In this project, the main goal is to reduce food waste that restaurants, grocery stores, hotels and even bakery stores produce everyday and aren’t consumed totally and most of these products are thrown away in the trash. In short, we are rescuing the leftovers or surplus food.
 
-
 This project is mainly an online ecommerce food shopping site. To achieve our goal, this site offers promotions to consumers who want low cost food products and goods, especially for those who have a low budget each month. It’s a good way to help those who are in need of a nice good meal.
-
 
 Businesses will also have benefits in this action due to the fact that all products and goods that aren’t totally consumed or sold inside their business (restaurant, hotel, stores etc) are going to be sold through this website and are not wasted away. Businesses will still gain profit from the surplus or leftovers. Nothing should be thrown away as food production costs money, time and lots of effort.
 
@@ -208,6 +209,10 @@ The wireframes were created for each individual page on three different screen s
 <br>
 
 [Back to Top](#table-of-contents)
+
+## Design Thinking
+
+Design thinking agiling
  
 ## Technology Used
  
@@ -266,37 +271,100 @@ The wireframes were created for each individual page on three different screen s
    - [JSHint](https://jshint.com/)
    - [Pep8 CI](https://pep8ci.herokuapp.com/)
 
- 
+<br>
+
 ## Database
  
 #### Database Schema:
  
-Detail the db schema here (if applicable)....images, thoughts behind fks etc
- 
+The database schema was traced using dbdiagram. The database schema serves as a guide before making the view models. The database consists of the following tables: User, Store, Business Type, Checkout and Favourites.
+- User is the customer online
+- Store is the store details
+- Business Type is the model to create the business type category
+- Checkout is where all purchase go and the details of the customer
+- Favourites is where all the favourites stores are.
+
+<br>
+
+![Database Schema](media/readme-files/database-schema.jpg)
+
 ## Features
  
 The project boasts several key features:
 * Create: ...
+
+[Back to Top](#table-of-contents)
+
+### Web Marketing
+
+For this ecommerce project I have chosen to use free web marketing strategies. These are:
+
+   - SEO and content marketing
+   - Social media marketing
+   - Email newsletter subscription
+
+#### SEO IMPLEMENTATION
+
+Some of the tecniques for SEO implementation for this project is done by using semantic HTML, minimize the keyword stuff but use these keywords in natural sentences in content of the website, use descriptive alt attribute for images, use metadata description and keyword on the head level of the project and using noopener in rel and descriptive aria-label attributes for external links.
+
+The keywords are short-tailed and long-tailed for this project, and after much deliberation these keywords are as follows:
+      
+   - leftovers, low cost, save food, reduce waste, save planet, great discount food, unsold good, guaranteed low price, surplus food, unsold food from restaurants, great discount products from supermarkets,
+   fight food waste.
+
+For a good SEO implementation robots.txt is also added at the project root level which tells search engine crawlers which URLs the crawler can access on the website. This is used mainly to avoid overloading the site with requests; it is not a mechanism for keeping a web page out of Google.
+
+Sitemap.xml was also included in the project root level. It is a file that lists a website’s essential pages, making sure Google can find and crawl them all. It also helps search engines understand your website structure. You want Google to crawl every important page of your website. But sometimes, pages end up without internal links pointing to them, making them hard to find. A sitemap can help speed up content discovery.
+
+<br>
+
+#### Social Media Marketing
+
+The social media platform chosen for web marketing was Facebook, because it has the largest number of users and the widest demographic. The purpose of a Facebook bussines page is to get potential customers attention on the business and to promote company's products and services. The facebook page was created using my personal facebook page. Deactivated after taking screenshot.
+
+![Facebook page of Green Planet](media/readme-files/green-planet-fb-page.jpg)
+
+<br>
+
+#### Email Marketing
+
+The use of email within the ecommerce projects is to promote a business’s products and services, as well as customer loyalty. Email marketing is a  a key pillar of your digital marketing strategy. It is a form of marketing that can make the customers on your email list aware of new products, discounts, and other services.
+
+Mailchimp was used for the subscription form for newsletter that can help optimize email marketing to get the best marketing program.
+
+![Newsletter subscription form from Mailchimp](media/readme-files/mailchimp-subscription-form.jpg)
  
 [Back to Top](#table-of-contents)
  
-#### Future Features:
+### Future Features:
  
-* Detail future implementations here...
+* For future features not implemente and this is included in the user story: REVIEWS. Due to the limited time, I couldn't start to implement it. For this feature it would be nice to have a review section where user who have tried the food from a store can leave a review and ratings.
+
+* I could have added more shipping details and more billing details to be able to include home delivery to any orders, but as time was very limited changing the code and trying to make it work would take a lot of time. So for future feature I leave this to be implemented.
+
+* Add more store in the store page to offer more promos and discounted food to customers.
+
+* Expand the FAQ content thus it is not complete, and fix the scrollspy problem and the UI of this page is not good.
+
+* Add a blog section where admin, shoppers, or guests can browse to any interesting content regarding food saving, money saving, keeping the environment clean and reducing food waste at home or inside their businesses. 
  
 ## Testing
  
-Testing was ...
- 
+Testing was carried out manually throughout the development of this project. Constant testing was done using Chrome Dev tools. Tested the website in different devices and sizes. Testing was carried out with the following validators:
+
+   - PEP8 python Validator
+
+   - W3C Markup and CSS Validator
+
+   - JSHint Validator
+
+All validity tests passed.
+
 #### Found Bugs and Fixes:
  
-During manual testing...
+During manual testing some minor and major bugs was encountered.
  
 [Back to Top](#table-of-contents)
- 
-#### Defensive Design
- 
-Defensive design for this application was...
  
 ## Deployment
  
@@ -304,32 +372,32 @@ The project's repo was hosted on GitHub and it was deployed on Heroku
 
 ### Heroku Setup and CLI
 
-Deploying Python to GitHub Pages won't work, since it can only handle front-end files such as HTML, CSS, and JavaScript. So this project needs to be deployed to a hosting platform that can render Python files. One such platform is [Heroku](https://id.heroku.com/login).
+Deploying Python to GitHub itself won't work, since Github can only handle front-end files such as HTML, CSS, and JavaScript. So this project it needs to be deployed to a hosting platform that can render Python files. One such platform is [Heroku](https://id.heroku.com/login).
 
-- sign up / login to [Heroku](https://id.heroku.com/login) website
+- sign up / login to [Heroku](https://id.heroku.com/login) website to create or login to your account
 - if necessary, install the heroku CLI in Gitpod: `curl https://cli-assets.heroku.com/install.sh | sh`
 - login to Heroku CLI: `heroku login -i`
 
 ### Create database with ElephantSQL
- 1. Log in to ElephantSQL.com to access your dashboard.
+ 1. Log in to ElephantSQL.com to access dashboard.
 
  2. Click “Create New Instance”.
 
- 3. Set up your plan
+ 3. Set up plan
 
-      - Give your plan a Name (this is commonly the name of the project)
+      - Give it a Name (this is commonly the name of the project)
 
       - Select the Tiny Turtle (Free) plan
 
-      - You can leave the Tags field blank
+      - Leave the Tags field blank
 
 4. Select “Select Region”.
 
-5. Select a data center near you.
+5. Select the nearest data center.
 
 6. Click "Review".
 
-7. Check your details are correct and then click “Create instance”.
+7. Check details are correct and then click “Create instance”.
 
 
 ### Creating a Heroku App
@@ -338,7 +406,7 @@ A Heroku app can be created in CLI or on [Heroku website](https://id.heroku.com)
 
 1. Click New to create a new app.
 
-2. Give your app a name and select the region closest to you. When you’re done, click Create app to confirm. Heroku app names must be unique.
+2. Give app a name and select closest region. When done, click Create app to confirm. Heroku app names must be unique.
 
 #### Create Heroku app in CLI
 - In the terminal: `heroku apps:create app-name --region eu`
