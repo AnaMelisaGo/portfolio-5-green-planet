@@ -66,7 +66,7 @@ The footer has different links to browse for the users' additional information a
 
 ## Business Model
 
-The business model for this ecommerce project is B2C (Business to Customer). The customer purchase a food from a business and the customer should pay in advance via online using Stripe.
+The business model for this ecommerce project is B2C (Business to Customer). The customer purchase a food or good that aren't sold or totally consumed from a business through this app and the customer should pay in advance via online using Stripe. When payment is done successfully, an email confirmation is sent to the user for collection.
 
 ## User Experience:
  
@@ -120,14 +120,20 @@ _Developer:_
 #### Design
  
 ##### 1. Font
-lorem
+
+The font used for this project is basic and easy to recognize. I used Google fonts Lato with a 400 regular thickness.
  
 ##### 2. Color Scheme
-lorem - replace as necessary
- 
-detail color palettes/swatches here using images.
- 
-The colors used throughout and what for etc....
+
+![Color Schema](media/readme-files/color-schema.jpg)
+
+The color schema was inspired by the colors of a dark night forest. Dark green and dark blue are used to give depth and intensity. The light colors is to give contrast from the dark colors. New colors were added during the development.
+
+`#e7f0e3` is a very light green used for the webpage background
+
+`#946C3E` is a light brown used to enfasize some links and the navbar active page css style
+
+`#99C233` is a neon green used in the navbar
  
 ##### 3. Logo
 The logo was ... add detail, or remove as necessary
@@ -147,14 +153,6 @@ The wireframes were created for each individual page on three different screen s
 Home page
  
 ![Home page](#)
- 
-Wish tree page
- 
-![Wish tree page](#)
- 
-Send wishes page
- 
-![Send wishes page](#)
  
 Login/Register page
  
