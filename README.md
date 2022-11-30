@@ -213,11 +213,59 @@ The wireframes were created for each individual page on three different screen s
  
 #### Languages, Frameworks, Editors & Version Control:
  
-* add notes here on techstack...
+* Core languages
+   - HTML & CSS: For the main structure of the contents and style
+   - Javascript: for a dynamic control of objects and elements in the webpage
+   - Python: Object-oriented programming language
+
+* [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, design. It's free and open source.
+
+* [Bootstrap](https://getbootstrap.com/) a front-end framework used to style the project.
+
+* [Gitpod](https://www.gitpod.io/) is an IDE using VS Code for remote development.
+
+* [Git](https://git-scm.com/) is used for version control.
+
+* [Github](https://github.com/) is used to host the project repository and linked to heroku
+
+* [Heroku](https://www.heroku.com/) is a container-based cloud Platform to deploy and manage apps. Used to deploy this project.
  
 #### Tools Used:
- 
-* add notes here on tools used to assist in developing the project...
+
+* Balsamiq: for wireframes creations.
+
+* ElephantSQL: a free database. Used to migrate the database of the project and to be deploy in Heroku.
+
+* [AWS S3](https://aws.amazon.com/) was used to store files for the webpage.
+
+* Logo Designer: a mobile app used to create the logo and the heading of some pages of this project.
+
+* [Iloveimg](https://www.iloveimg.com/) is an online photo editor used to edit and crop images for this project.
+
+* Grammarly to spell check any grammar error for this project.
+
+* Gmail is used to send and recieve email when user sends a message.
+
+* [Mailchimp](https://mailchimp.com/?currency=EUR) to create subscription form and receive any submitted form for subscription.
+
+* Fontawesome for the icons.
+
+* Hover CSS for the hover effects of the icons.
+
+* JQuery is a lightweight JavaScript library. Used to create datepicker for this project and for manipulation and event handling.
+
+* [dbdiagram](https://dbdiagram.io) to create database schema.
+
+* ColorZilla is an eyedropper extension that assists web developers and graphic designers with color related tasks. Used in this project to pick colors.
+
+* Amiresponsive to mockup the webpage responsive design.
+
+* Validator used:
+   - [W3C Markup Validator](https://validator.w3.org/)
+   - [W3C CSS Validator](https://validator.w3.org/)
+   - [JSHint](https://jshint.com/)
+   - [Pep8 CI](https://pep8ci.herokuapp.com/)
+
  
 ## Database
  
@@ -252,7 +300,146 @@ Defensive design for this application was...
  
 ## Deployment
  
-Detail deployment here...
+The project's repo was hosted on GitHub and it was deployed on Heroku
+
+### Heroku Setup and CLI
+
+Deploying Python to GitHub Pages won't work, since it can only handle front-end files such as HTML, CSS, and JavaScript. So this project needs to be deployed to a hosting platform that can render Python files. One such platform is [Heroku](https://id.heroku.com/login).
+
+- sign up / login to [Heroku](https://id.heroku.com/login) website
+- if necessary, install the heroku CLI in Gitpod: `curl https://cli-assets.heroku.com/install.sh | sh`
+- login to Heroku CLI: `heroku login -i`
+
+### Create database with ElephantSQL
+ 1. Log in to ElephantSQL.com to access your dashboard.
+
+ 2. Click “Create New Instance”.
+
+ 3. Set up your plan
+
+      - Give your plan a Name (this is commonly the name of the project)
+
+      - Select the Tiny Turtle (Free) plan
+
+      - You can leave the Tags field blank
+
+4. Select “Select Region”.
+
+5. Select a data center near you.
+
+6. Click "Review".
+
+7. Check your details are correct and then click “Create instance”.
+
+
+### Creating a Heroku App
+
+A Heroku app can be created in CLI or on [Heroku website](https://id.heroku.com)
+
+1. Click New to create a new app.
+
+2. Give your app a name and select the region closest to you. When you’re done, click Create app to confirm. Heroku app names must be unique.
+
+#### Create Heroku app in CLI
+- In the terminal: `heroku apps:create app-name --region eu`
+- view the apps in CLI: `heroku apps`
+- view the key remotes in CLI: `git remote -v`
+
+### Connecting Database on Heroku
+
+1. Open the Settings tab in the Heroku app
+
+2. Add the config var DATABASE_URL, and for the value, copy in the database url from ElephantSQL.
+
+### Installing Project Requirements
+
+The `db.sqlite3` database cannot be used in Heroku and Heroku had ended their free tier offerings for deployment with its platform. We used ElephantSQL instead of Postgres for this project.
+
+- install a database url package: `pip3 install dj-database-url==0.5.0 psycopg2` - this package allows us to parse the database url that Heroku created
+- refreeze the requirements file: `pip3 freeze > requirements.txt`
+- in `settings.py`
+   - import "dj_database_url" underneath import os
+   - comment out the original "DATABASE" settings and paste in ` DATABASES = {
+     'default': dj_database_url.parse('your-database-url-here')
+   }`. DO NOT commit this file with your database string in the code, this is temporary
+   - run migrations: `python3 manage.py migrate`
+   - Create a superuser for your new database `python3 manage.py createsuperuser`.
+   - To prevent exposing the database when pushing to GitHub, delete it again from settings.py and uncomment the original "DATABASE".
+   - Check ElephantSQL to confirm database is created
+
+### Deployment to Heroku
+1. In `settings.py` delete the database created and replace it with:
+
+`if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }`
+
+2. install webserver: `pip3 install gunicorn` - replaces the development server once the app is deployed to Heroku
+
+3. run `pip3 freeze > requirements.txt` - creates a file to let heroku know which packages to install.
+
+4. Create Procfile file
+
+5. Add this code for Heroku to create web dyno: `web: gunicorn green_planet.wsgi:application`
+
+6. Go to Heroku, settings , config var and add variable:
+`COLLECTSTATIC` : 1 ,so that Heroku won't try to collect staticfiles when we deploy.
+
+7. Add the hostname of the Heroku app to `ALLOWED_HOSTS` in settings.py
+
+8. Push the code to Github
+
+9. In the terminal run: `heroku git:remote -a heroku-app-name`
+
+10. git push heroku main to deploy to heroku
+
+### Connecting Heroku to Github
+
+By connecting Heroku to Github the application will automatically deploy the latest code to Heroku.
+
+1. In heroku app, open app, in "Deploy" tab, under the "Deployment method" setting select "GitHub"
+
+2. Search for repository and click "Connect"
+
+3. Choose "Enable Automatic Deploys"
+
+### Config vars
+
+Config vars are needed to be created in Heroku so that to conect the app to Django, AWS, stripe and email.
+
+### Github
+
+#### Create a new repository
+
+- Log into [GitHub](https://github.com/)
+- On the 'Repositories' tab click 'New'
+- Name the repository and click 'Create repository'
+
+#### Forking
+
+- Sign into Github and go to my [repo](https://github.com/ChrisT-CC/H2B-PP5-ecommerce)
+- Press the "Fork" button the top right corner of page
+- Click "Create fork"
+
+#### Cloning
+
+- Sign in to Github and go to my [repo](https://github.com/ChrisT-CC/H2B-PP5-ecommerce)
+- Above the list of files click "Code"
+- Select HTTPS, SSH or Github CLI, then click the copy button to get the URL
+- Open your IDE of choice
+- Type "git clone" and then paste the URL you copied
+- Press Enter
+
+[Cloning a repository In GitHub documantation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
  
 [Back to Top](#table-of-contents)
  
